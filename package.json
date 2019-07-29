@@ -2,7 +2,11 @@
   "name": "@ecomplus/search-engine",
   "version": "0.0.1",
   "description": "JS lib to handle products search with E-Com Plus stores",
-  "main": "src/index.js",
+  "main": "dist/ecom-search.min.js",
+  "module": "src/index.js",
+  "browser": "dist/ecom-search.min.js",
+  "jsdelivr": "dist/ecom-search.root.min.js",
+  "unpkg": "dist/ecom-search.root.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
