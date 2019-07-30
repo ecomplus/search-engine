@@ -23,7 +23,7 @@ export default self => search({
 // Run search request
 search.fetch().then(result => {
   console.log(result.took)
-  console.log(`{result.hits.total} items found:`)
+  console.log(`${result.hits.total} items found:`)
   console.log(result.hits.hits)
 })
 
