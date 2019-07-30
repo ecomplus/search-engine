@@ -6,6 +6,7 @@
 
 import { _config } from '@ecomplus/utils'
 import fetch from './methods/fetch'
+import resetQuery from './methods/reset-query'
 
 /**
  * JS lib to handle products search with E-Com Plus stores.
@@ -35,9 +36,19 @@ export default function (storeId = _config.get('store_id')) {
    */
   this.storeId = storeId
 
-  this.fetch = function () {
-    return fetch(self, arguments)
-  }
+  /**
+   * Current
+   * [Query DSL]{@link https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html}
+   * for [Search API]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
+   * request body
+   * @name EcomSearch#query
+   * @type {object}
+   */
+  this.query = {}
+  resetQuery(self)
+
+  this.fetch = () => fetch(self)
+  this.resetQuery = () => resetQuery(self)
 }
 
 /**
