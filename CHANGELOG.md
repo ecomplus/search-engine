@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/ecomclub/search-engine/compare/v0.1.0...v0.2.0) (2019-07-30)
+
+
+### Features
+
+* **fetch:** handling search api request with fetch method ([ebd12ba](https://github.com/ecomclub/search-engine/commit/ebd12ba))
+* **method:** add 'resetQuery' method and setup with default Query DSL ([f3770d9](https://github.com/ecomclub/search-engine/commit/f3770d9))
+
+
+
 ## 0.1.0 (2019-07-29)
 
 
