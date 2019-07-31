@@ -2,6 +2,7 @@ import query from './../lib/query'
 
 export default self => {
   self.query = query
+  return self
 }
 
 /**
@@ -11,6 +12,8 @@ export default self => {
  * [Query DSL]{@link https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html}
  * for [Search API]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
  * request body.
+ *
+ * @returns {self}
  *
  * @example
 
