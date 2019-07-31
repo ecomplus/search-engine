@@ -1,7 +1,7 @@
 import query from './../lib/query'
 
 export default self => {
-  self.query = query
+  self.query = Object.assign({}, query)
   return self
 }
 
