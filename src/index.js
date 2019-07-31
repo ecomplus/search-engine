@@ -57,7 +57,6 @@ export default function (storeId = _config.get('store_id')) {
    * @type {object}
    */
   this.query = {}
-  resetQuery(self)
 
   // instance methods
   this.fetch = () => fetch(self)
@@ -71,6 +70,13 @@ export default function (storeId = _config.get('store_id')) {
   this.addBrand = brand => addBrand(self, brand)
   this.addProductId = _id => addProductId(self, _id)
   this.setPriceRange = pricesObj => setPriceRange(self, pricesObj)
+
+  // preset query object
+  resetQuery(self)
+  // set default page limit
+  setPageSize(self, 24)
+  // set default sort by views
+  setSortOrder(self)
 }
 
 /**
