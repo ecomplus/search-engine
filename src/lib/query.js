@@ -11,8 +11,6 @@ export default {
       ]
     }
   },
-  // default page limit
-  size: 24,
   sort: [
     {
       available: {
@@ -24,13 +22,7 @@ export default {
         order: 'desc'
       }
     },
-    '_score',
-    // default sort by views after preseted sorting options
-    {
-      views: {
-        order: 'desc'
-      }
-    }
+    '_score'
   ],
   aggs: {
     brands: {
