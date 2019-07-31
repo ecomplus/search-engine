@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/reset-query.js - Documentation</title>
+    <title>methods/set-sort-order.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/reset-query.js</h1>
+    <h1 class="page-title">methods/set-sort-order.js</h1>
     
 
     
@@ -44,22 +44,75 @@
         <article>
             <pre class="prettyprint source linenums"><code>import query from './../lib/query'
 
-export default self => {
-  self.query = query
+export default (self, enumOrder) => {
+  // get default sort array
+  const sort = query.sort.slice()
+
+  // defines most common sorting options
+  switch (enumOrder) {
+    case 'sales':
+    case 1:
+      // sort by sales after relevance
+      sort.splice(2, 0, {
+        sales: {
+          order: 'desc'
+        }
+      })
+      break
+
+    case 'lowest_price':
+    case 2:
+      // sort by price
+      // lowest price -> highest price
+      sort.splice(1, 0, {
+        price: {
+          order: 'asc'
+        }
+      })
+      break
+
+    case 'highest_price':
+    case 3:
+      // sort by price
+      // highest price -> lowest price
+      sort.splice(1, 0, {
+        price: {
+          order: 'desc'
+        }
+      })
+      break
+
+    default:
+      // default sort by views after preseted sorting options
+      sort.push({
+        views: {
+          order: 'desc'
+        }
+      })
+  }
+
+  // set instance query sort
+  self.query.sort = sort
 }
 
 /**
  * @method
- * @name EcomSearch#resetQuery
- * @description Setup default
- * [Query DSL]{@link https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html}
- * for [Search API]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
- * request body.
+ * @name EcomSearch#setSortOrder
+ * @description Defines most common sorting options and set
+ * on instance query for next search request.
+ *
+ * @param {('sales'|'lowes_price'|'highest_price')} [enumOrder='views'] - Sort order option
  *
  * @example
 
-// Reset instance query object to default
-search.resetQuery()
+// Sort next search result by top selling products
+search.setSortOrder('sales')
+
+* @example
+
+// Sort next search result starting by most popular products
+// It's the default preseted sort order (views)
+search.setSortOrder()
 
  */
 </code></pre>
