@@ -37,7 +37,7 @@ const config = {
     colors: true
   },
   devtool: 'source-map',
-  externals: devMode ? '' : /^(@babel\/runtime|core-js|@ecomplus\/(utils|client))/
+  externals: devMode ? '' : /^(@babel\/runtime|core-js|@ecomplus\/(utils|client)|lodash\.clonedeep)/
 }
 
 module.exports = devMode
@@ -62,6 +62,11 @@ module.exports = devMode
           commonjs: '@ecomplus/client',
           commonjs2: '@ecomplus/client',
           root: 'ecomClient'
+        },
+        'lodash.clonedeep': {
+          commonjs: 'lodash.clonedeep',
+          commonjs2: 'lodash.clonedeep',
+          root: '_.cloneDeep'
         }
       }
     }
