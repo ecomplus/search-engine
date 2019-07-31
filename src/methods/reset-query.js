@@ -1,7 +1,8 @@
 import query from './../lib/query'
+import clonedeep from 'lodash.clonedeep'
 
 export default self => {
-  self.query = Object.assign({}, query)
+  self.query = clonedeep(query)
   return self
 }
 
