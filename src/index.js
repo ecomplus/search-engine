@@ -7,6 +7,15 @@
 import { _config } from '@ecomplus/utils'
 import fetch from './methods/fetch'
 import resetQuery from './methods/reset-query'
+import setSearchTerm from './methods/set-search-term'
+import setPageNumber from './methods/set-page-number'
+import setPageSize from './methods/set-page-size'
+import setSortOrder from './methods/set-sort-order'
+import addSpec from './methods/add-spec'
+import addCategory from './methods/add-category'
+import addBrand from './methods/add-brand'
+import addProductId from './methods/add-product-id'
+import setPriceRange from './methods/set-price-range'
 
 /**
  * JS lib to handle products search with E-Com Plus stores.
@@ -30,7 +39,7 @@ export default function (storeId = _config.get('store_id')) {
   const self = this
 
   /**
-   * Respective Store ID number
+   * Respective Store ID number.
    * @name EcomSearch#storeId
    * @type {number}
    */
@@ -40,15 +49,28 @@ export default function (storeId = _config.get('store_id')) {
    * Current
    * [Query DSL]{@link https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html}
    * for [Search API]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
-   * request body
+   * request body.
+   * <br>
+   * You can edit this object to manually set Query DSL properties,
+   * or you can use instance methods listed below.
    * @name EcomSearch#query
    * @type {object}
    */
   this.query = {}
   resetQuery(self)
 
+  // instance methods
   this.fetch = () => fetch(self)
   this.resetQuery = () => resetQuery(self)
+  this.setSearchTerm = term => setSearchTerm(self, term)
+  this.setPageNumber = page => setPageNumber(self, page)
+  this.setPageSize = limit => setPageSize(self, limit)
+  this.setSortOrder = enumOrder => setSortOrder(self, enumOrder)
+  this.addSpec = spec => addSpec(self, spec)
+  this.addCategory = category => addCategory(self, category)
+  this.addBrand = brand => addBrand(self, brand)
+  this.addProductId = _id => addProductId(self, _id)
+  this.setPriceRange = pricesObj => setPriceRange(self, pricesObj)
 }
 
 /**
