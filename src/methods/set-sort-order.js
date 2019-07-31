@@ -7,7 +7,6 @@ export default (self, enumOrder) => {
   // defines most common sorting options
   switch (enumOrder) {
     case 'sales':
-    case 1:
       // sort by sales after relevance
       sort.splice(2, 0, {
         sales: {
@@ -17,7 +16,6 @@ export default (self, enumOrder) => {
       break
 
     case 'lowest_price':
-    case 2:
       // sort by price
       // lowest price -> highest price
       sort.splice(1, 0, {
@@ -28,7 +26,6 @@ export default (self, enumOrder) => {
       break
 
     case 'highest_price':
-    case 3:
       // sort by price
       // highest price -> lowest price
       sort.splice(1, 0, {
@@ -57,7 +54,7 @@ export default (self, enumOrder) => {
  * @description Defines most common sorting options and set
  * on instance query for next search request.
  *
- * @param {('sales'|'lowes_price'|'highest_price')} [enumOrder='views'] - Sort option
+ * @param {string('sales'|'lowes_price'|'highest_price')} [enumOrder='views'] - Sort option
  *
  * @example
 
