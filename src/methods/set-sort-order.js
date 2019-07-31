@@ -46,6 +46,7 @@ export default (self, enumOrder) => {
 
   // set instance query sort
   self.query.sort = sort
+  return self
 }
 
 /**
@@ -55,11 +56,12 @@ export default (self, enumOrder) => {
  * on instance query for next search request.
  *
  * @param {('sales'|'lowes_price'|'highest_price')} [enumOrder='views'] - Sort option
+ * @returns {self}
  *
  * @example
 
-// Sort next search result by top selling products
-search.setSortOrder('sales')
+// Set sort by top selling products and run search request
+search.setSortOrder('sales').fetch()
 
 * @example
 
