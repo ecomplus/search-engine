@@ -1,8 +1,8 @@
 import query from './../lib/query'
-import clonedeep from 'lodash.clonedeep'
+import { cloneDeep } from 'lodash'
 
 export default self => {
-  self.query = clonedeep(query)
+  self.query = cloneDeep(query)
   return self
 }
 
