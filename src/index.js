@@ -71,12 +71,8 @@ export default function (storeId = _config.get('store_id')) {
   this.addProductId = _id => addProductId(self, _id)
   this.setPriceRange = pricesObj => setPriceRange(self, pricesObj)
 
-  // preset query object
-  resetQuery(self)
-  // set default page limit
-  setPageSize(self, 24)
-  // set default sort by views
-  setSortOrder(self)
+  // preset query object and set default page limit and sort by views
+  resetQuery(self).setPageSize().setSortOrder()
 }
 
 /**
