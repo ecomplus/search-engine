@@ -1,4 +1,4 @@
-import query from './../lib/query'
+import query from './../lib/dsl'
 
 export default (self, enumOrder) => {
   // get default sort array
@@ -45,7 +45,7 @@ export default (self, enumOrder) => {
   }
 
   // set instance query sort
-  self.query.sort = sort
+  self.dsl.sort = sort
   return self
 }
 

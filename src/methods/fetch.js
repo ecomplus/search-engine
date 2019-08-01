@@ -4,7 +4,7 @@ import { search } from '@ecomplus/client'
 export default self => search({
   url: '/items.json',
   method: 'post',
-  data: self.query
+  data: self.dsl
 })
   // resolving with response data
   .then(({ data }) => data)

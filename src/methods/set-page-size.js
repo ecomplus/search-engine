@@ -1,5 +1,5 @@
 export default (self, limit = 24) => {
-  self.query.size = limit
+  self.dsl.size = limit
   return self
 }
 

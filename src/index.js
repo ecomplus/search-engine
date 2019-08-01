@@ -53,10 +53,10 @@ export default function (storeId = _config.get('store_id')) {
    * <br>
    * You can edit this object to manually set Query DSL properties,
    * or you can use instance methods listed below.
-   * @name EcomSearch#query
+   * @name EcomSearch#dsl
    * @type {object}
    */
-  this.query = {}
+  this.dsl = {}
 
   // instance methods
   this.fetch = () => fetch(self)
