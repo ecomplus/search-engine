@@ -3,7 +3,8 @@ import { cloneDeep } from 'lodash'
 
 export default self => {
   self.dsl = cloneDeep(query)
-  return self
+  // reset default page limit and sort by views
+  return self.setPageSize().setSortOrder()
 }
 
 /**
