@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/fetch.js - Documentation</title>
+    <title>methods/set-page-size.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/fetch.js</h1>
+    <h1 class="page-title">methods/set-page-size.js</h1>
     
 
     
@@ -42,34 +42,29 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { search } from '@ecomplus/client'
-
-// request Search API and return promise
-export default self => search({
-  url: '/items.json',
-  method: 'post',
-  data: self.dsl
-})
-  // resolving with response data
-  .then(({ data }) => data)
+            <pre class="prettyprint source linenums"><code>export default (self, limit = 24) => {
+  self.dsl.size = limit
+  return self
+}
 
 /**
  * @method
- * @name EcomSearch#fetch
- * @description Send POST request to
- * [E-Com Plus Search API]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
- * and returns promise resolved with search result.
+ * @name EcomSearch#setPageSize
+ * @description Defines maximum number of result items for next search request.
  *
- * @returns {Promise&lt;result|error>}
+ * @param {number} [limit=24] - Integer max result size
+ * @returns {self}
  *
  * @example
 
-// Run search request
-search.fetch().then(result => {
-  console.log(result.took)
-  console.log(`${result.hits.total} items found:`)
-  console.log(result.hits.hits)
-})
+// Set page size 20 and run search request
+search.setPageSize(20).fetch()
+
+* @example
+
+// Set to 24 the maxium results for next search
+// It's the default preseted page size
+search.setPageSize()
 
  */
 </code></pre>
