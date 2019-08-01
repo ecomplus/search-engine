@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.5.0](https://github.com/ecomclub/search-engine/compare/v0.4.0...v0.5.0) (2019-08-01)
+
+
+### Bug Fixes
+
+* **reset-query:** reset default page limit and sort by views ([6712898](https://github.com/ecomclub/search-engine/commit/6712898))
+
+
+### Features
+
+* **set-page-number:** handling 'setPageNumber' method ([baca926](https://github.com/ecomclub/search-engine/commit/baca926))
+* **set-search-term:** handling 'setSearchTerm' method ([204eae2](https://github.com/ecomclub/search-engine/commit/204eae2))
+
+
+
 ## [0.4.0](https://github.com/ecomclub/search-engine/compare/v0.3.0...v0.4.0) (2019-08-01)
 
 
