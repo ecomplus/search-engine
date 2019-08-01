@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/ecomclub/search-engine/compare/v0.3.0...v0.4.0) (2019-08-01)
+
+
+### Build System
+
+* **webpack:** fix declaring lodash as external lib ([32cb011](https://github.com/ecomclub/search-engine/commit/32cb011))
+
+
+### Features
+
+* **set-page-size:** handing 'setPageSize' method ([cf12f36](https://github.com/ecomclub/search-engine/commit/cf12f36))
+
+
+### refactor
+
+* **constructor:** changing 'query' property to 'dsl' ([3e5e08b](https://github.com/ecomclub/search-engine/commit/3e5e08b))
+
+
+### BREAKING CHANGES
+
+* **constructor:** search.query will no more work, changed to search.dsl
+
+
+
 ## [0.3.0](https://github.com/ecomclub/search-engine/compare/v0.2.0...v0.3.0) (2019-07-31)
 
 
