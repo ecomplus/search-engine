@@ -1,5 +1,15 @@
 import { merge } from 'lodash'
 
+const getNestedRule = filter => {
+  // treat nested query object
+  // look './set-specs.js' as example
+  const query = filter && filter.nested && filter.nested.query
+  if (query && query.bool && Array.isArray(query.bool.filter)) {
+    return query.bool.filter.find(rule => rule.term)
+  }
+  return undefined
+}
+
 export default (self, filter) => {
   const type = Object.keys(filter)[0]
   // merge general filter to current Query DSL
@@ -33,11 +43,16 @@ export default (self, filter) => {
       break
 
     case 'nested':
-      if (filter.nested) {
+      const rule = getNestedRule(filter)
+      if (rule) {
+        // check field and key value for nested object filter
+        const field = Object.keys(rule.term)[0]
+        const key = rule.term[field]
+        // run root filters list first
         for (let i = 0; i < filters.length; i++) {
-          const { nested } = filters[i]
-          // check if is the same nested object
-          if (nested && nested.path === filter.nested.path) {
+          const rule = getNestedRule(filters[i])
+          // check field and key value
+          if (rule && rule.term[field] === key) {
             // replace filter object
             filters[i] = filter
             return self
