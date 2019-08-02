@@ -33,7 +33,7 @@ search.setPriceRange(10, 22.5).fetch()
 
  * @example
 
-// Remove filter by price price for next search
+// Remove filter by product price for next search
 search.setPriceRange(null, null)
 
  */
