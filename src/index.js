@@ -12,7 +12,7 @@ import setPageNumber from './methods/set-page-number'
 import setPageSize from './methods/set-page-size'
 import setSortOrder from './methods/set-sort-order'
 import mergeFilter from './methods/merge-filter'
-import setSpecs from './methods/set-specs'
+import setSpec from './methods/set-spec'
 import setCategories from './methods/set-categories'
 import setBrands from './methods/set-brands'
 import setProductIds from './methods/set-product-ids'
@@ -67,11 +67,11 @@ export default function (storeId = _config.get('store_id')) {
   this.setPageSize = limit => setPageSize(self, limit)
   this.setSortOrder = enumOrder => setSortOrder(self, enumOrder)
   this.mergeFilter = filter => mergeFilter(self, filter)
-  this.setSpecs = spec => setSpecs(self, spec)
+  this.setSpec = (gridId, textOptions) => setSpec(self, gridId, textOptions)
   this.setCategories = category => setCategories(self, category)
   this.setBrands = brand => setBrands(self, brand)
   this.setProductIds = _id => setProductIds(self, _id)
-  this.setPriceRange = pricesObj => setPriceRange(self, pricesObj)
+  this.setPriceRange = (minPrice, maxPrice) => setPriceRange(self, minPrice, maxPrice)
 
   // preset query object
   resetQuery(self)
