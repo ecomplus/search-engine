@@ -11,10 +11,11 @@ import setSearchTerm from './methods/set-search-term'
 import setPageNumber from './methods/set-page-number'
 import setPageSize from './methods/set-page-size'
 import setSortOrder from './methods/set-sort-order'
-import addSpec from './methods/add-spec'
-import addCategory from './methods/add-category'
-import addBrand from './methods/add-brand'
-import addProductId from './methods/add-product-id'
+import mergeFilter from './methods/merge-filter'
+import setSpecs from './methods/set-specs'
+import setCategories from './methods/set-categories'
+import setBrands from './methods/set-brands'
+import setProductIds from './methods/set-product-ids'
 import setPriceRange from './methods/set-price-range'
 
 /**
@@ -65,10 +66,11 @@ export default function (storeId = _config.get('store_id')) {
   this.setPageNumber = page => setPageNumber(self, page)
   this.setPageSize = limit => setPageSize(self, limit)
   this.setSortOrder = enumOrder => setSortOrder(self, enumOrder)
-  this.addSpec = spec => addSpec(self, spec)
-  this.addCategory = category => addCategory(self, category)
-  this.addBrand = brand => addBrand(self, brand)
-  this.addProductId = _id => addProductId(self, _id)
+  this.mergeFilter = filter => mergeFilter(self, filter)
+  this.setSpecs = spec => setSpecs(self, spec)
+  this.setCategories = category => setCategories(self, category)
+  this.setBrands = brand => setBrands(self, brand)
+  this.setProductIds = _id => setProductIds(self, _id)
   this.setPriceRange = pricesObj => setPriceRange(self, pricesObj)
 
   // preset query object
