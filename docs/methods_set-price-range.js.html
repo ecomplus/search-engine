@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/set-sort-order.js - Documentation</title>
+    <title>methods/set-price-range.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/set-sort-order.js</h1>
+    <h1 class="page-title">methods/set-price-range.js</h1>
     
 
     
@@ -42,76 +42,43 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import query from './../lib/dsl'
-
-export default (self, enumOrder) => {
-  // get default sort array
-  const sort = query.sort.slice()
-
-  // defines most common sorting options
-  switch (enumOrder) {
-    case 'sales':
-      // sort by sales after relevance
-      sort.splice(2, 0, {
-        sales: {
-          order: 'desc'
-        }
-      })
-      break
-
-    case 'lowest_price':
-      // sort by price
-      // lowest price -> highest price
-      sort.splice(1, 0, {
-        price: {
-          order: 'asc'
-        }
-      })
-      break
-
-    case 'highest_price':
-      // sort by price
-      // highest price -> lowest price
-      sort.splice(1, 0, {
-        price: {
-          order: 'desc'
-        }
-      })
-      break
-
-    default:
-      // default sort by views after preseted sorting options
-      sort.push({
-        views: {
-          order: 'desc'
-        }
-      })
+            <pre class="prettyprint source linenums"><code>export default (self, minPrice, maxPrice) => {
+  // price ranges
+  const price = {}
+  if (typeof minPrice === 'number' &amp;&amp; !isNaN(minPrice)) {
+    price.gte = minPrice
+  }
+  if (typeof maxPrice === 'number' &amp;&amp; !isNaN(maxPrice)) {
+    price.lte = maxPrice
   }
 
-  // set instance query sort
-  self.dsl.sort = sort
-  return self
+  // add/update filter
+  return self.mergeFilter({
+    range: {
+      price
+    }
+  })
 }
 
 /**
  * @method
- * @name EcomSearch#setSortOrder
- * @description Defines most common sorting options and set
- * on instance query for next search request.
+ * @name EcomSearch#setPriceRange
+ * @description Defines range filter to match with product price
+ * for next search request.
  *
- * @param {('sales'|'lowes_price'|'highest_price')} [enumOrder='views'] - Sort option
+ * @param {number|null} minPrice - Minimun price value
+ * @param {number|null} maxPrice - Maximun price value
  * @returns {self}
  *
  * @example
 
-// Set sort by top selling products and run search request
-search.setSortOrder('sales').fetch()
+// Set filter by price range and run search request
+search.setPriceRange(10, 22.5).fetch()
 
-* @example
+ * @example
 
-// Sort next search result starting by most popular products
-// It's the default preseted sort order (views)
-search.setSortOrder()
+// Remove filter by product price for next search
+search.setPriceRange(null, null)
 
  */
 </code></pre>
