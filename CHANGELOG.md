@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/ecomclub/search-engine/compare/v0.5.0...v0.6.0) (2019-08-02)
+
+
+### Bug Fixes
+
+* **merge-filter:** check field and key value for nested object filter ([0d4fc0f](https://github.com/ecomclub/search-engine/commit/0d4fc0f))
+
+
+### Features
+
+* **merge-filter:** handling 'mergeFilter' method ([b86c96c](https://github.com/ecomclub/search-engine/commit/b86c96c))
+* **set-price-range:** handling 'setPriceRange' method ([5b9ead4](https://github.com/ecomclub/search-engine/commit/5b9ead4))
+* **set-spec:** handling 'setSpec' methods ([0a93966](https://github.com/ecomclub/search-engine/commit/0a93966))
+
+
+### refactor
+
+* **constructor:** changing some methods names ([cad3d3e](https://github.com/ecomclub/search-engine/commit/cad3d3e))
+* **set-price-range:** edit method params ([8927966](https://github.com/ecomclub/search-engine/commit/8927966))
+
+
+### BREAKING CHANGES
+
+* **set-price-range:** 'setPriceRange' no more working with object param
+* **constructor:** some methods renamed
+
+
+
 ## [0.5.0](https://github.com/ecomclub/search-engine/compare/v0.4.0...v0.5.0) (2019-08-01)
 
 
