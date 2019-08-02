@@ -48,7 +48,7 @@ export default (self, term) => {
 // Set new search term
 search.setSearchTerm('smartphone')
 
-* @example
+ * @example
 
 // Set new term and run search request
 search.setSearchTerm('notebook').fetch()
