@@ -55,7 +55,8 @@ export default (self, gridId, textOptions) => {
  * by product specification based on grid ID and list of text options to match.
  *
  * @param {string} gridId - Grid ID such as 'size'
- * @param {array} textOptions - List of chosen options such as `['M', 'G']`
+ * @param {array|null} textOptions - List of chosen options such as `['M', 'G']`
+ * or null to clear current grid filter
  * @returns {self}
  *
  * @example
