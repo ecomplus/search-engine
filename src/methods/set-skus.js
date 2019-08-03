@@ -5,7 +5,7 @@ export default (self, skus) => commonFilter(self, null, 'sku', skus)
 
 /**
  * @method
- * @name EcomSearch#setProductIds
+ * @name EcomSearch#setSkus
  * @description Defines list of product SKUs to match on next search request.
  *
  * @param {array<string>|null} skus - List of product SKUs
