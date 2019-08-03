@@ -10,6 +10,14 @@ export default self => search({
   .then(({ data }) => data)
 
 /**
+ * @typedef {object} result
+ * @property {object} hits - Elasticsearch hits object
+ * @property {number} hits.total - Total number of products found
+ * @property {array<object>} hits.hits - List of resultant items
+ * @property {number} took - Request time in milliseconds
+ */
+
+/**
  * @method
  * @name EcomSearch#fetch
  * @description Send POST request to
@@ -21,10 +29,17 @@ export default self => search({
  * @example
 
 // Run search request
-search.fetch().then(result => {
-  console.log(result.took)
-  console.log(`${result.hits.total} items found:`)
-  console.log(result.hits.hits)
-})
+search.fetch()
+  .then(result => {
+    console.log(result.took)
+    console.log(`${result.hits.total} items found:`)
+    console.log(result.hits.hits)
+  })
+  .catch(error => {
+    console.error(error)
+    if (error.response) {
+      console.log(error.response)
+    }
+  })
 
  */
