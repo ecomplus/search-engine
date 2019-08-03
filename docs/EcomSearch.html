@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomSearch.html">EcomSearch</a><ul class='methods'><li data-type='method'><a href="EcomSearch.html#fetch">fetch</a></li><li data-type='method'><a href="EcomSearch.html#mergeFilter">mergeFilter</a></li><li data-type='method'><a href="EcomSearch.html#removeFilter">removeFilter</a></li><li data-type='method'><a href="EcomSearch.html#resetQuery">resetQuery</a></li><li data-type='method'><a href="EcomSearch.html#setBrandIds">setBrandIds</a></li><li data-type='method'><a href="EcomSearch.html#setBrandNames">setBrandNames</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryIds">setCategoryIds</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryNames">setCategoryNames</a></li><li data-type='method'><a href="EcomSearch.html#setPageNumber">setPageNumber</a></li><li data-type='method'><a href="EcomSearch.html#setPageSize">setPageSize</a></li><li data-type='method'><a href="EcomSearch.html#setPriceRange">setPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#setProductIds">setProductIds</a></li><li data-type='method'><a href="EcomSearch.html#setProductIds">setProductIds</a></li><li data-type='method'><a href="EcomSearch.html#setSearchTerm">setSearchTerm</a></li><li data-type='method'><a href="EcomSearch.html#setSortOrder">setSortOrder</a></li><li data-type='method'><a href="EcomSearch.html#setSpec">setSpec</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_search-engine.html">@ecomplus/search-engine</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomSearch.html">EcomSearch</a><ul class='methods'><li data-type='method'><a href="EcomSearch.html#fetch">fetch</a></li><li data-type='method'><a href="EcomSearch.html#mergeFilter">mergeFilter</a></li><li data-type='method'><a href="EcomSearch.html#removeFilter">removeFilter</a></li><li data-type='method'><a href="EcomSearch.html#resetQuery">resetQuery</a></li><li data-type='method'><a href="EcomSearch.html#setBrandIds">setBrandIds</a></li><li data-type='method'><a href="EcomSearch.html#setBrandNames">setBrandNames</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryIds">setCategoryIds</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryNames">setCategoryNames</a></li><li data-type='method'><a href="EcomSearch.html#setPageNumber">setPageNumber</a></li><li data-type='method'><a href="EcomSearch.html#setPageSize">setPageSize</a></li><li data-type='method'><a href="EcomSearch.html#setPriceRange">setPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#setProductIds">setProductIds</a></li><li data-type='method'><a href="EcomSearch.html#setSearchTerm">setSearchTerm</a></li><li data-type='method'><a href="EcomSearch.html#setSkus">setSkus</a></li><li data-type='method'><a href="EcomSearch.html#setSortOrder">setSortOrder</a></li><li data-type='method'><a href="EcomSearch.html#setSpec">setSpec</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_search-engine.html">@ecomplus/search-engine</a></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <div id="main">
@@ -401,7 +401,7 @@ or you can use instance methods listed below.
 
     
 
-    <h4 class="name" id="fetch"><span class="type-signature"></span>fetch<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;(result|error)>}</span></h4>
+    <h4 class="name" id="fetch"><span class="type-signature"></span>fetch<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;(<a href="global.html#result">result</a>|error)>}</span></h4>
 
     
 
@@ -413,7 +413,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="methods_fetch.js.html">methods/fetch.js</a>, <a href="methods_fetch.js.html#line12">line 12</a>
+        <a href="methods_fetch.js.html">methods/fetch.js</a>, <a href="methods_fetch.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -469,11 +469,18 @@ and returns promise resolved with search result.
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>// Run search request
-search.fetch().then(result => {
-  console.log(result.took)
-  console.log(`${result.hits.total} items found:`)
-  console.log(result.hits.hits)
-})</code></pre>
+search.fetch()
+  .then(result => {
+    console.log(result.took)
+    console.log(`${result.hits.total} items found:`)
+    console.log(result.hits.hits)
+  })
+  .catch(error => {
+    console.error(error)
+    if (error.response) {
+      console.log(error.response)
+    }
+  })</code></pre>
 
 
 
@@ -503,7 +510,7 @@ search.fetch().then(result => {
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;(result|error)></span>
+<span class="param-type">Promise.&lt;(<a href="global.html#result">result</a>|error)></span>
 
 
     </dd>
@@ -2364,7 +2371,171 @@ search.setProductIds(null)</code></pre>
 
     
 
-    <h4 class="name" id="setProductIds"><span class="type-signature"></span>setProductIds<span class="signature">(skus)</span><span class="type-signature"> &rarr; {self}</span></h4>
+    <h4 class="name" id="setSearchTerm"><span class="type-signature"></span>setSearchTerm<span class="signature">(term)</span><span class="type-signature"> &rarr; {self}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="methods_set-search-term.js.html">methods/set-search-term.js</a>, <a href="methods_set-search-term.js.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Defines term to match with product name
+and/or keywords on next search request.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Set new search term
+search.setSearchTerm('smartphone')</code></pre>
+
+    <pre class="prettyprint"><code>// Set new term and run search request
+search.setSearchTerm('notebook').fetch()</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>term</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Term to be searched</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">self</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="setSkus"><span class="type-signature"></span>setSkus<span class="signature">(skus)</span><span class="type-signature"> &rarr; {self}</span></h4>
 
     
 
@@ -2483,170 +2654,6 @@ search.setSkus(null).fetch()</code></pre>
             
 
             <td class="description last">List of product SKUs</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-
-
-<dl class="param-type">
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">self</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="setSearchTerm"><span class="type-signature"></span>setSearchTerm<span class="signature">(term)</span><span class="type-signature"> &rarr; {self}</span></h4>
-
-    
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="methods_set-search-term.js.html">methods/set-search-term.js</a>, <a href="methods_set-search-term.js.html#line37">line 37</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-<div class="description">
-    Defines term to match with product name
-and/or keywords on next search request.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Examples</h5>
-    
-    <pre class="prettyprint"><code>// Set new search term
-search.setSearchTerm('smartphone')</code></pre>
-
-    <pre class="prettyprint"><code>// Set new term and run search request
-search.setSearchTerm('notebook').fetch()</code></pre>
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>term</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Term to be searched</td>
         </tr>
 
     
@@ -3093,7 +3100,7 @@ or null to clear current grid filter</td>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Aug 03 2019 17:42:14 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Sat Aug 03 2019 17:58:32 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
