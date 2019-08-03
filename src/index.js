@@ -12,9 +12,13 @@ import setPageNumber from './methods/set-page-number'
 import setPageSize from './methods/set-page-size'
 import setSortOrder from './methods/set-sort-order'
 import mergeFilter from './methods/merge-filter'
+import removeFilter from './methods/remove-filter'
 import setSpec from './methods/set-spec'
-import setCategories from './methods/set-categories'
-import setBrands from './methods/set-brands'
+import setCategoryNames from './methods/set-category-names'
+import setCategoryIds from './methods/set-category-ids'
+import setBrandNames from './methods/set-brand-names'
+import setBrandIds from './methods/set-brand-ids'
+import setSkus from './methods/set-skus'
 import setProductIds from './methods/set-product-ids'
 import setPriceRange from './methods/set-price-range'
 
@@ -67,10 +71,14 @@ export default function (storeId = _config.get('store_id')) {
   this.setPageSize = limit => setPageSize(self, limit)
   this.setSortOrder = enumOrder => setSortOrder(self, enumOrder)
   this.mergeFilter = filter => mergeFilter(self, filter)
+  this.removeFilter = field => removeFilter(self, field)
   this.setSpec = (gridId, textOptions) => setSpec(self, gridId, textOptions)
-  this.setCategories = category => setCategories(self, category)
-  this.setBrands = brand => setBrands(self, brand)
-  this.setProductIds = _id => setProductIds(self, _id)
+  this.setCategoryNames = categoryNames => setCategoryNames(self, categoryNames)
+  this.setCategoryIds = categoryIds => setCategoryIds(self, categoryIds)
+  this.setBrandNames = brandNames => setBrandNames(self, brandNames)
+  this.setBrandIds = brandIds => setBrandIds(self, brandIds)
+  this.setSkus = skus => setSkus(self, skus)
+  this.setProductIds = productIds => setProductIds(self, productIds)
   this.setPriceRange = (minPrice, maxPrice) => setPriceRange(self, minPrice, maxPrice)
 
   // preset query object
