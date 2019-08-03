@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/set-search-term.js - Documentation</title>
+    <title>methods/set-category-names.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/set-search-term.js</h1>
+    <h1 class="page-title">methods/set-category-names.js</h1>
     
 
     
@@ -42,60 +42,29 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { merge } from 'lodash'
+            <pre class="prettyprint source linenums"><code>import commonFilter from './../lib/common-filter'
 
-export default (self, term) => {
-  merge(self.dsl, {
-    // match name and/or keyword with term
-    // https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html
-    query: {
-      bool: {
-        must: {
-          multi_match: {
-            query: term,
-            fields: [
-              'name',
-              'keywords'
-            ]
-          }
-        }
-      }
-    },
-
-    // handle terms suggestion
-    // 'did you mean?'
-    // https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters.html
-    suggest: {
-      text: term,
-      words: {
-        term: {
-          field: 'name'
-        }
-      }
-    }
-  })
-
-  return self
-}
+// handle filter by category names
+export default (self, categoryNames) => commonFilter(self, 'categories', 'name', categoryNames)
 
 /**
  * @method
- * @name EcomSearch#setSearchTerm
- * @description Defines term to match with product name
- * and/or keywords on next search request.
+ * @name EcomSearch#setCategoryNames
+ * @description Defines list of category names to match on next search request,
+ * filtering product results by category.
  *
- * @param {string} term - Term to be searched
+ * @param {array&lt;string>|null} categoryNames - List of category names
  * @returns {self}
  *
  * @example
 
-// Set new search term
-search.setSearchTerm('smartphone')
+// Set filter by categories and run search request
+search.setCategoryNames([ 'Headset', 'Monitores Gamer' ]).fetch()
 
  * @example
 
-// Set new term and run search request
-search.setSearchTerm('notebook').fetch()
+// Remove filter by category names
+search.setCategoryNames(null)
 
  */
 </code></pre>

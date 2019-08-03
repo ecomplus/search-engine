@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/set-search-term.js - Documentation</title>
+    <title>methods/set-product-ids.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/set-search-term.js</h1>
+    <h1 class="page-title">methods/set-product-ids.js</h1>
     
 
     
@@ -42,60 +42,28 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { merge } from 'lodash'
+            <pre class="prettyprint source linenums"><code>import commonFilter from './../lib/common-filter'
 
-export default (self, term) => {
-  merge(self.dsl, {
-    // match name and/or keyword with term
-    // https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html
-    query: {
-      bool: {
-        must: {
-          multi_match: {
-            query: term,
-            fields: [
-              'name',
-              'keywords'
-            ]
-          }
-        }
-      }
-    },
-
-    // handle terms suggestion
-    // 'did you mean?'
-    // https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters.html
-    suggest: {
-      text: term,
-      words: {
-        term: {
-          field: 'name'
-        }
-      }
-    }
-  })
-
-  return self
-}
+// handle filter by product IDs
+export default (self, productIds) => commonFilter(self, null, '_id', productIds)
 
 /**
  * @method
- * @name EcomSearch#setSearchTerm
- * @description Defines term to match with product name
- * and/or keywords on next search request.
+ * @name EcomSearch#setProductIds
+ * @description Defines list of product IDs to match on next search request.
  *
- * @param {string} term - Term to be searched
+ * @param {array&lt;string>|null} productIds - List of product ObjectIDs (`_id`)
  * @returns {self}
  *
  * @example
 
-// Set new search term
-search.setSearchTerm('smartphone')
+// Set filter by ID and run search request
+search.setProductIds([ '5c703c40c626be23430d5033' ]).fetch()
 
  * @example
 
-// Set new term and run search request
-search.setSearchTerm('notebook').fetch()
+// Remove filter by product ID
+search.setProductIds(null)
 
  */
 </code></pre>

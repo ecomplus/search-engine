@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/set-search-term.js - Documentation</title>
+    <title>methods/remove-filter.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/set-search-term.js</h1>
+    <h1 class="page-title">methods/remove-filter.js</h1>
     
 
     
@@ -42,60 +42,42 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { merge } from 'lodash'
-
-export default (self, term) => {
-  merge(self.dsl, {
-    // match name and/or keyword with term
-    // https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html
-    query: {
-      bool: {
-        must: {
-          multi_match: {
-            query: term,
-            fields: [
-              'name',
-              'keywords'
-            ]
-          }
-        }
-      }
-    },
-
-    // handle terms suggestion
-    // 'did you mean?'
-    // https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters.html
-    suggest: {
-      text: term,
-      words: {
-        term: {
-          field: 'name'
-        }
+            <pre class="prettyprint source linenums"><code>export default (self, field) => {
+  // remove filter for current product field
+  const filters = self.dsl.query &amp;&amp; self.dsl.query.bool &amp;&amp; self.dsl.query.bool.filter
+  if (Array.isArray(filters)) {
+    for (let i = 0; i &lt; filters.length; i++) {
+      const filter = filters[i]
+      if ((filter.nested &amp;&amp; filter.nested.path === field) || filter[Object.keys(filter)[0]][field]) {
+        // remove filters array element
+        filters.splice(i, 1)
+        break
       }
     }
-  })
-
+  }
   return self
 }
 
 /**
  * @method
- * @name EcomSearch#setSearchTerm
- * @description Defines term to match with product name
- * and/or keywords on next search request.
+ * @name EcomSearch#removeFilter
+ * @description Remove a filter object on current
+ * Query DSL filters list for next search request.
  *
- * @param {string} term - Term to be searched
+ * @param {string} field - A valid
+ * [item field]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
+ * with dot notation for nested properties
  * @returns {self}
  *
  * @example
 
-// Set new search term
-search.setSearchTerm('smartphone')
+// Remove filter by brand IDs and all specification filters
+search.removeFilter('brands._id').removeFilter('specs')
 
  * @example
 
-// Set new term and run search request
-search.setSearchTerm('notebook').fetch()
+// Remove filter by category names and run seach request
+search.removeFilter('categories.name').fetch()
 
  */
 </code></pre>
