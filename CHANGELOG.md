@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0](https://github.com/ecomclub/search-engine/compare/v0.6.0...v0.7.0) (2019-08-03)
+
+
+### Features
+
+* **remove-filters:** handling 'removeFilters' method ([425383c](https://github.com/ecomclub/search-engine/commit/425383c))
+* **set-brand-ids:** handling 'setBrandIds' method ([cbac95e](https://github.com/ecomclub/search-engine/commit/cbac95e))
+* **set-brand-names:** handling 'setBrandNames' method ([caf127f](https://github.com/ecomclub/search-engine/commit/caf127f))
+* **set-category-ids:** handling 'setCategoryIds' method ([f775482](https://github.com/ecomclub/search-engine/commit/f775482))
+* **set-category-names:** handling 'setCategoryNames' method ([bca22b0](https://github.com/ecomclub/search-engine/commit/bca22b0))
+* **set-product-ids:** handling 'setProductIds' method ([23f1871](https://github.com/ecomclub/search-engine/commit/23f1871))
+* **set-skus:** handling 'setSkus' method ([13172b2](https://github.com/ecomclub/search-engine/commit/13172b2))
+
+
+
 ## [0.6.0](https://github.com/ecomclub/search-engine/compare/v0.5.0...v0.6.0) (2019-08-02)
 
 
