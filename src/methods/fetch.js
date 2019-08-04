@@ -14,6 +14,8 @@ export default self => search({
  * @property {object} hits - Elasticsearch hits object
  * @property {number} hits.total - Total number of products found
  * @property {array<object>} hits.hits - List of resultant items
+ * @property {object} aggregations - Elasticsearch aggregations results
+ * @property {object} suggest - Search term suggestions object
  * @property {number} took - Request time in milliseconds
  */
 
