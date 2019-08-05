@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.8.0](https://github.com/ecomclub/search-engine/compare/v0.7.0...v0.8.0) (2019-08-05)
+
+
+### Features
+
+* **get-items:** add 'getItems' method ([4c96b2e](https://github.com/ecomclub/search-engine/commit/4c96b2e))
+* **get-total-count:** add 'getTotalCount' method ([a295007](https://github.com/ecomclub/search-engine/commit/a295007))
+* **result:** saving last result object as instance member ([8241d41](https://github.com/ecomclub/search-engine/commit/8241d41))
+
+
+### refactor
+
+* **reset:** also unset instance result, change method name ([860c911](https://github.com/ecomclub/search-engine/commit/860c911))
+
+
+### BREAKING CHANGES
+
+* **reset:** 'resetQuery' method no more working, renamed to 'reset'
+
+
+
 ## [0.7.0](https://github.com/ecomclub/search-engine/compare/v0.6.0...v0.7.0) (2019-08-03)
 
 
