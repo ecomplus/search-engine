@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/fetch.js - Documentation</title>
+    <title>methods/get-total-count.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/fetch.js</h1>
+    <h1 class="page-title">methods/get-total-count.js</h1>
     
 
     
@@ -42,55 +42,39 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import { search } from '@ecomplus/client'
-
-// request Search API and return promise
-export default self => search({
-  url: '/items.json',
-  method: 'post',
-  data: self.dsl
-})
-  .then(({ data }) => {
-    // save last result on instance
-    self.result = data
-    // resolving with response data
-    return data
-  })
-
-/**
- * @typedef {object} result
- * @property {object} hits - Elasticsearch hits object
- * @property {number} hits.total - Total number of products found
- * @property {array&lt;object>} hits.hits - List of resultant items
- * @property {object} aggregations - Elasticsearch aggregations results
- * @property {object} suggest - Search term suggestions object
- * @property {number} took - Request time in milliseconds
- */
+            <pre class="prettyprint source linenums"><code>export default (self, result) => {
+  // return total matched items
+  if (!result) {
+    result = self.result || {}
+  }
+  return result.hits ? result.hits.total : undefined
+}
 
 /**
  * @method
- * @name EcomSearch#fetch
- * @description Send POST request to
- * [E-Com Plus Search API]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
- * and returns promise resolved with search result.
+ * @name EcomSearch#getTotalCount
+ * @description Get total number of products found from search result object.
  *
- * @returns {Promise&lt;result|error>}
+ * @param {result} [result=self.result] - Search result object
+ * @returns {number}
  *
  * @example
 
-// Run search request
-search.fetch()
-  .then(result => {
-    console.log(result.took)
-    console.log(`${result.hits.total} items found:`)
-    console.log(result.hits.hits)
-  })
-  .catch(error => {
-    console.error(error)
-    if (error.response) {
-      console.log(error.response)
-    }
-  })
+// Run search request and count total items matched
+search.fetch().then(() => console.log(search.getTotalCount()))
+
+ * @example
+
+// You can also pass search result object as param
+try {
+  const result = await search.fetch()
+  if (search.getTotalCount(result) > 0) {
+    // Listing result items as logic example here
+    console.log(search.getItems(result))
+  }
+} catch (error) {
+  console.error(error)
+}
 
  */
 </code></pre>
