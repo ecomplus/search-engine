@@ -2,24 +2,27 @@ import query from './../lib/dsl'
 import { cloneDeep } from 'lodash'
 
 export default self => {
+  // reset Query DSL
   self.dsl = cloneDeep(query)
+  // unset result
+  self.result = undefined
   // reset default page limit and sort by views
   return self.setPageSize().setSortOrder()
 }
 
 /**
  * @method
- * @name EcomSearch#resetQuery
- * @description Setup default
+ * @name EcomSearch#reset
+ * @description Reset default
  * [Query DSL]{@link https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html}
  * for [Search API]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
- * request body.
+ * request body and unset instance result.
  *
  * @returns {self}
  *
  * @example
 
-// Reset instance query object to default
-search.resetQuery()
+// Reset instance `dsl` and `result`
+search.reset()
 
  */

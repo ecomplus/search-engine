@@ -6,7 +6,7 @@
 
 import { _config } from '@ecomplus/utils'
 import fetch from './methods/fetch'
-import resetQuery from './methods/reset-query'
+import reset from './methods/reset'
 import setSearchTerm from './methods/set-search-term'
 import setPageNumber from './methods/set-page-number'
 import setPageSize from './methods/set-page-size'
@@ -73,7 +73,7 @@ export default function (storeId = _config.get('store_id')) {
 
   // instance methods
   this.fetch = () => fetch(self)
-  this.resetQuery = () => resetQuery(self)
+  this.reset = () => reset(self)
   this.setSearchTerm = term => setSearchTerm(self, term)
   this.setPageNumber = page => setPageNumber(self, page)
   this.setPageSize = limit => setPageSize(self, limit)
@@ -90,7 +90,7 @@ export default function (storeId = _config.get('store_id')) {
   this.setPriceRange = (minPrice, maxPrice) => setPriceRange(self, minPrice, maxPrice)
 
   // preset query object
-  resetQuery(self)
+  reset(self)
 }
 
 /**
