@@ -63,6 +63,14 @@ export default function (storeId = _config.get('store_id')) {
    */
   this.dsl = {}
 
+  /**
+   * Last search result object obtained with the
+   * [fetch method]{@link EcomSearch#fetch}.
+   * @name EcomSearch#result
+   * @type {result|undefined}
+   */
+  this.result = undefined
+
   // instance methods
   this.fetch = () => fetch(self)
   this.resetQuery = () => resetQuery(self)

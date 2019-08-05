@@ -6,8 +6,12 @@ export default self => search({
   method: 'post',
   data: self.dsl
 })
-  // resolving with response data
-  .then(({ data }) => data)
+  .then(({ data }) => {
+    // save last result on instance
+    self.result = data
+    // resolving with response data
+    return data
+  })
 
 /**
  * @typedef {object} result
