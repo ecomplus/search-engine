@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomSearch.html">EcomSearch</a><ul class='methods'><li data-type='method'><a href="EcomSearch.html#fetch">fetch</a></li><li data-type='method'><a href="EcomSearch.html#mergeFilter">mergeFilter</a></li><li data-type='method'><a href="EcomSearch.html#removeFilter">removeFilter</a></li><li data-type='method'><a href="EcomSearch.html#resetQuery">resetQuery</a></li><li data-type='method'><a href="EcomSearch.html#setBrandIds">setBrandIds</a></li><li data-type='method'><a href="EcomSearch.html#setBrandNames">setBrandNames</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryIds">setCategoryIds</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryNames">setCategoryNames</a></li><li data-type='method'><a href="EcomSearch.html#setPageNumber">setPageNumber</a></li><li data-type='method'><a href="EcomSearch.html#setPageSize">setPageSize</a></li><li data-type='method'><a href="EcomSearch.html#setPriceRange">setPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#setProductIds">setProductIds</a></li><li data-type='method'><a href="EcomSearch.html#setSearchTerm">setSearchTerm</a></li><li data-type='method'><a href="EcomSearch.html#setSkus">setSkus</a></li><li data-type='method'><a href="EcomSearch.html#setSortOrder">setSortOrder</a></li><li data-type='method'><a href="EcomSearch.html#setSpec">setSpec</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_search-engine.html">@ecomplus/search-engine</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomSearch.html">EcomSearch</a><ul class='methods'><li data-type='method'><a href="EcomSearch.html#fetch">fetch</a></li><li data-type='method'><a href="EcomSearch.html#getItems">getItems</a></li><li data-type='method'><a href="EcomSearch.html#mergeFilter">mergeFilter</a></li><li data-type='method'><a href="EcomSearch.html#removeFilter">removeFilter</a></li><li data-type='method'><a href="EcomSearch.html#reset">reset</a></li><li data-type='method'><a href="EcomSearch.html#setBrandIds">setBrandIds</a></li><li data-type='method'><a href="EcomSearch.html#setBrandNames">setBrandNames</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryIds">setCategoryIds</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryNames">setCategoryNames</a></li><li data-type='method'><a href="EcomSearch.html#setPageNumber">setPageNumber</a></li><li data-type='method'><a href="EcomSearch.html#setPageSize">setPageSize</a></li><li data-type='method'><a href="EcomSearch.html#setPriceRange">setPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#setProductIds">setProductIds</a></li><li data-type='method'><a href="EcomSearch.html#setSearchTerm">setSearchTerm</a></li><li data-type='method'><a href="EcomSearch.html#setSkus">setSkus</a></li><li data-type='method'><a href="EcomSearch.html#setSortOrder">setSortOrder</a></li><li data-type='method'><a href="EcomSearch.html#setSpec">setSpec</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_search-engine.html">@ecomplus/search-engine</a></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <div id="main">
@@ -71,7 +71,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line96">line 96</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line98">line 98</a>
     </li></ul></dd>
     
 
@@ -251,7 +251,7 @@ const search = new EcomSearch(storeId)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line53">line 53</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line54">line 54</a>
     </li></ul></dd>
     
 
@@ -330,7 +330,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line66">line 66</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line67">line 67</a>
     </li></ul></dd>
     
 
@@ -407,7 +407,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line46">line 46</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line47">line 47</a>
     </li></ul></dd>
     
 
@@ -588,6 +588,193 @@ search.fetch()
     <dd>
         
 <span class="param-type">Promise.&lt;(<a href="global.html#result">result</a>|error)></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getItems"><span class="type-signature"></span>getItems<span class="signature">(result<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {array.&lt;object>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="methods_get-items.js.html">methods/get-items.js</a>, <a href="methods_get-items.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    List items from search result object.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Run search request and list result items
+await search.fetch()
+search.getItems().forEach(item => {
+  console.log(item)
+  console.log(item.name)
+})</code></pre>
+
+    <pre class="prettyprint"><code>// You can also pass search result object as param
+search.fetch().then(result => search.getItems(result).forEach(({ sku }) => console.log(sku)))</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>result</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#result">result</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>self.result</code>
+                
+                </td>
+            
+
+            <td class="description last">Search result object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">array.&lt;object></span>
 
 
     </dd>
@@ -938,7 +1125,7 @@ with dot notation for nested properties</td>
 
     
 
-    <h4 class="name" id="resetQuery"><span class="type-signature"></span>resetQuery<span class="signature">()</span><span class="type-signature"> &rarr; {self}</span></h4>
+    <h4 class="name" id="reset"><span class="type-signature"></span>reset<span class="signature">()</span><span class="type-signature"> &rarr; {self}</span></h4>
 
     
 
@@ -950,7 +1137,7 @@ with dot notation for nested properties</td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="methods_reset-query.js.html">methods/reset-query.js</a>, <a href="methods_reset-query.js.html#line10">line 10</a>
+        <a href="methods_reset.js.html">methods/reset.js</a>, <a href="methods_reset.js.html#line13">line 13</a>
     </li></ul></dd>
     
 
@@ -990,10 +1177,10 @@ with dot notation for nested properties</td>
 
 
 <div class="description">
-    Setup default
+    Reset default
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html">Query DSL</a>
 for <a href="https://developers.e-com.plus/docs/api/#/search/items/items">Search API</a>
-request body.
+request body and unset instance result.
 </div>
 
 
@@ -1006,8 +1193,8 @@ request body.
 
     <h5>Example</h5>
     
-    <pre class="prettyprint"><code>// Reset instance query object to default
-search.resetQuery()</code></pre>
+    <pre class="prettyprint"><code>// Reset instance `dsl` and `result`
+search.reset()</code></pre>
 
 
 
@@ -3177,7 +3364,7 @@ or null to clear current grid filter</td>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Aug 05 2019 15:12:28 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Aug 05 2019 15:39:48 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

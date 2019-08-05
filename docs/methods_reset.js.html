@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/set-category-names.js - Documentation</title>
+    <title>methods/reset.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/set-category-names.js</h1>
+    <h1 class="page-title">methods/reset.js</h1>
     
 
     
@@ -42,29 +42,32 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import commonFilter from './../lib/common-filter'
+            <pre class="prettyprint source linenums"><code>import query from './../lib/dsl'
+import { cloneDeep } from 'lodash'
 
-// handle filter by category names
-export default (self, categoryNames) => commonFilter(self, 'categories', 'name', categoryNames)
+export default self => {
+  // reset Query DSL
+  self.dsl = cloneDeep(query)
+  // unset result
+  self.result = undefined
+  // reset default page limit and sort by views
+  return self.setPageSize().setSortOrder()
+}
 
 /**
  * @method
- * @name EcomSearch#setCategoryNames
- * @description Defines list of category names to match on next search request,
- * filtering product results by category.
+ * @name EcomSearch#reset
+ * @description Reset default
+ * [Query DSL]{@link https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html}
+ * for [Search API]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
+ * request body and unset instance result.
  *
- * @param {array&lt;string>|null} categoryNames - List of category names
  * @returns {self}
  *
  * @example
 
-// Set filter by categories and run search request
-search.setCategoryNames([ 'Headset', 'Monitores Gamer' ]).fetch()
-
- * @example
-
-// Remove filter by category names
-search.setCategoryNames(null)
+// Reset instance `dsl` and `result`
+search.reset()
 
  */
 </code></pre>
