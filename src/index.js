@@ -22,6 +22,7 @@ import setSkus from './methods/set-skus'
 import setProductIds from './methods/set-product-ids'
 import setPriceRange from './methods/set-price-range'
 import getItems from './methods/get-items'
+import getTotalCount from './methods/get-total-count'
 
 /**
  * JS lib to handle products search with E-Com Plus stores.
@@ -90,6 +91,7 @@ export default function (storeId = _config.get('store_id')) {
   this.setProductIds = productIds => setProductIds(self, productIds)
   this.setPriceRange = (minPrice, maxPrice) => setPriceRange(self, minPrice, maxPrice)
   this.getItems = result => getItems(self, result)
+  this.getTotalCount = result => getTotalCount(self, result)
 
   // preset query object
   reset(self)
