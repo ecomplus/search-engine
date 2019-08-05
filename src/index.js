@@ -21,6 +21,7 @@ import setBrandIds from './methods/set-brand-ids'
 import setSkus from './methods/set-skus'
 import setProductIds from './methods/set-product-ids'
 import setPriceRange from './methods/set-price-range'
+import getItems from './methods/get-items'
 
 /**
  * JS lib to handle products search with E-Com Plus stores.
@@ -88,6 +89,7 @@ export default function (storeId = _config.get('store_id')) {
   this.setSkus = skus => setSkus(self, skus)
   this.setProductIds = productIds => setProductIds(self, productIds)
   this.setPriceRange = (minPrice, maxPrice) => setPriceRange(self, minPrice, maxPrice)
+  this.getItems = result => getItems(self, result)
 
   // preset query object
   reset(self)
