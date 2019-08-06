@@ -23,6 +23,7 @@ It's available for both Node.js and browser environments.
 
 ```js
 // Simple search example
+const search = new EcomSearch()
 search.setSearchTerm('smartphone').fetch()
   .then(result => {
     search.getItems().forEach(item => {
