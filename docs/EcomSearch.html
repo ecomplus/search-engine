@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomSearch.html">EcomSearch</a><ul class='methods'><li data-type='method'><a href="EcomSearch.html#fetch">fetch</a></li><li data-type='method'><a href="EcomSearch.html#getItems">getItems</a></li><li data-type='method'><a href="EcomSearch.html#getTotalCount">getTotalCount</a></li><li data-type='method'><a href="EcomSearch.html#mergeFilter">mergeFilter</a></li><li data-type='method'><a href="EcomSearch.html#removeFilter">removeFilter</a></li><li data-type='method'><a href="EcomSearch.html#reset">reset</a></li><li data-type='method'><a href="EcomSearch.html#setBrandIds">setBrandIds</a></li><li data-type='method'><a href="EcomSearch.html#setBrandNames">setBrandNames</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryIds">setCategoryIds</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryNames">setCategoryNames</a></li><li data-type='method'><a href="EcomSearch.html#setPageNumber">setPageNumber</a></li><li data-type='method'><a href="EcomSearch.html#setPageSize">setPageSize</a></li><li data-type='method'><a href="EcomSearch.html#setPriceRange">setPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#setProductIds">setProductIds</a></li><li data-type='method'><a href="EcomSearch.html#setSearchTerm">setSearchTerm</a></li><li data-type='method'><a href="EcomSearch.html#setSkus">setSkus</a></li><li data-type='method'><a href="EcomSearch.html#setSortOrder">setSortOrder</a></li><li data-type='method'><a href="EcomSearch.html#setSpec">setSpec</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_search-engine.html">@ecomplus/search-engine</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomSearch.html">EcomSearch</a><ul class='methods'><li data-type='method'><a href="EcomSearch.html#fetch">fetch</a></li><li data-type='method'><a href="EcomSearch.html#getItems">getItems</a></li><li data-type='method'><a href="EcomSearch.html#getTermSuggestions">getTermSuggestions</a></li><li data-type='method'><a href="EcomSearch.html#getTotalCount">getTotalCount</a></li><li data-type='method'><a href="EcomSearch.html#mergeFilter">mergeFilter</a></li><li data-type='method'><a href="EcomSearch.html#removeFilter">removeFilter</a></li><li data-type='method'><a href="EcomSearch.html#reset">reset</a></li><li data-type='method'><a href="EcomSearch.html#setBrandIds">setBrandIds</a></li><li data-type='method'><a href="EcomSearch.html#setBrandNames">setBrandNames</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryIds">setCategoryIds</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryNames">setCategoryNames</a></li><li data-type='method'><a href="EcomSearch.html#setPageNumber">setPageNumber</a></li><li data-type='method'><a href="EcomSearch.html#setPageSize">setPageSize</a></li><li data-type='method'><a href="EcomSearch.html#setPriceRange">setPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#setProductIds">setProductIds</a></li><li data-type='method'><a href="EcomSearch.html#setSearchTerm">setSearchTerm</a></li><li data-type='method'><a href="EcomSearch.html#setSkus">setSkus</a></li><li data-type='method'><a href="EcomSearch.html#setSortOrder">setSortOrder</a></li><li data-type='method'><a href="EcomSearch.html#setSpec">setSpec</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_search-engine.html">@ecomplus/search-engine</a></li></ul><h3><a href="global.html">Global</a></h3>
 </nav>
 
 <div id="main">
@@ -71,7 +71,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line100">line 100</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line102">line 102</a>
     </li></ul></dd>
     
 
@@ -251,7 +251,7 @@ const search = new EcomSearch(storeId)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line55">line 55</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line56">line 56</a>
     </li></ul></dd>
     
 
@@ -330,7 +330,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line68">line 68</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line69">line 69</a>
     </li></ul></dd>
     
 
@@ -407,7 +407,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line48">line 48</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line49">line 49</a>
     </li></ul></dd>
     
 
@@ -775,6 +775,198 @@ search.fetch().then(result => search.getItems(result).forEach(({ sku }) => conso
     <dd>
         
 <span class="param-type">array.&lt;object></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="getTermSuggestions"><span class="type-signature"></span>getTermSuggestions<span class="signature">(result<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {array.&lt;<a href="global.html#suggestion">suggestion</a>>}</span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="methods_get-term-suggestions.js.html">methods/get-term-suggestions.js</a>, <a href="methods_get-term-suggestions.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Get list of keyword suggestions based on current
+search term from result object.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Examples</h5>
+    
+    <pre class="prettyprint"><code>// Run search request and count total items matched
+search.fetch().then(() => console.log(search.getTotalCount()))</code></pre>
+
+    <pre class="prettyprint"><code>// You can also pass search result object as param
+try {
+  const result = await search.fetch()
+  if (search.getTotalCount(result) > 0) {
+    // Listing result items as logic example here
+    console.log(search.getItems(result))
+  }
+} catch (error) {
+  console.error(error)
+}</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>result</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><a href="global.html#result">result</a></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>self.result</code>
+                
+                </td>
+            
+
+            <td class="description last">Search result object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl class="param-type">
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">array.&lt;<a href="global.html#suggestion">suggestion</a>></span>
 
 
     </dd>
@@ -3555,7 +3747,7 @@ or null to clear current grid filter</td>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Mon Aug 05 2019 15:53:24 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Aug 06 2019 11:22:57 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
