@@ -5,8 +5,8 @@ export default (self, result) => commonAggregation(result || self.result || {}, 
 
 /**
  * @typedef {object} aggregation
- * @property {string} key - Brand/category name
- * @property {number} doc_count - How many items match with the respective brand/category
+ * @property {string} key - Brand/category/option name
+ * @property {number} doc_count - How many items match with the respective key
  */
 
 /**
