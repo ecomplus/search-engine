@@ -59,7 +59,7 @@
 
     
 
-    <h4 class="name" id="EcomSearch"><span class="type-signature"></span>new EcomSearch<span class="signature">(storeId<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="EcomSearch"><span class="type-signature"></span>new EcomSearch<span class="signature">(storeId<span class="signature-attributes">opt</span>, storageKey<span class="signature-attributes">opt</span>, localStorage<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
 
     
 
@@ -71,7 +71,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line110">line 110</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line143">line 143</a>
     </li></ul></dd>
     
 
@@ -198,6 +198,87 @@ const search = new EcomSearch(storeId)</code></pre>
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>storageKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>'ecomSeachHistory'</code>
+                
+                </td>
+            
+
+            <td class="description last">Item key to persist search history data</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>localStorage</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>window.localStorage</code>
+                
+                </td>
+            
+
+            <td class="description last"><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">Local Storage interface</a></td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -251,7 +332,7 @@ const search = new EcomSearch(storeId)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line60">line 60</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line86">line 86</a>
     </li></ul></dd>
     
 
@@ -319,6 +400,152 @@ or you can use instance methods listed below.
 
         
             
+<h4 class="name" id="history"><span class="type-signature"></span>history<span class="type-signature"> :array.&lt;string></span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line79">line 79</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Search terms history.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">array.&lt;string></span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id="localStorage"><span class="type-signature"></span>localStorage<span class="type-signature"> :object</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line72">line 72</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">Storage interface</a>.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">object</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="result"><span class="type-signature"></span>result<span class="type-signature"> :<a href="global.html#result">result</a>|undefined</span></h4>
 
 
@@ -330,7 +557,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line73">line 73</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line99">line 99</a>
     </li></ul></dd>
     
 
@@ -396,6 +623,83 @@ or you can use instance methods listed below.
 
         
             
+<h4 class="name" id="storageKey"><span class="type-signature"></span>storageKey<span class="type-signature"> :string|null</span></h4>
+
+
+
+
+
+<dl class="details">
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line64">line 64</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description">
+    Item key to handle persistent <a href="EcomSearch.html#history">search history</a> data
+with <a href="EcomSearch.html#localStorage">localStorage</a>.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">string</span>
+|
+
+<span class="param-type">null</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+
+        
+            
 <h4 class="name" id="storeId"><span class="type-signature"></span>storeId<span class="type-signature"> :number</span></h4>
 
 
@@ -407,7 +711,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line53">line 53</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line57">line 57</a>
     </li></ul></dd>
     
 
@@ -490,7 +794,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="methods_fetch.js.html">methods/fetch.js</a>, <a href="methods_fetch.js.html#line26">line 26</a>
+        <a href="methods_fetch.js.html">methods/fetch.js</a>, <a href="methods_fetch.js.html#line33">line 33</a>
     </li></ul></dd>
     
 
@@ -4488,7 +4792,7 @@ or null to clear current grid filter</td>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Aug 06 2019 12:49:43 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Aug 06 2019 20:41:30 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
