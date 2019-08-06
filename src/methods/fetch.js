@@ -5,13 +5,20 @@ export default self => search({
   url: '/items.json',
   method: 'post',
   data: self.dsl
+}).then(({ data }) => {
+  // save last result on instance
+  self.result = data
+  const { dsl, history, localStorage, storageKey } = self
+  if (dsl && dsl.suggest) {
+    // push search term to history
+    history.push(dsl.suggest.text)
+    if (localStorage && storageKey) {
+      localStorage.setItem(storageKey, history.join('||'))
+    }
+  }
+  // resolving with response data
+  return data
 })
-  .then(({ data }) => {
-    // save last result on instance
-    self.result = data
-    // resolving with response data
-    return data
-  })
 
 /**
  * @typedef {object} result

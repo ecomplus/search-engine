@@ -62,7 +62,7 @@ export default function (storeId = _store, storageKey = _key, localStorage = _st
   this.storeId = storeId
 
   /**
-   * Item key to handle persistent search history data
+   * Item key to handle persistent [search history]{@link EcomSearch#history} data
    * with [localStorage]{@link EcomSearch#localStorage}.
    * @name EcomSearch#storageKey
    * @type {string|null}
@@ -70,11 +70,18 @@ export default function (storeId = _store, storageKey = _key, localStorage = _st
   this.storageKey = storageKey
 
   /**
-   * [Local Storage interface]{@link https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage}
+   * [Storage interface]{@link https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage}.
    * @name EcomSearch#localStorage
    * @type {object}
    */
   this.localStorage = localStorage
+
+  /**
+   * Search terms history.
+   * @name EcomSearch#history
+   * @type {array<string>}
+   */
+  this.history = []
 
   /**
    * Current
@@ -124,6 +131,13 @@ export default function (storeId = _store, storageKey = _key, localStorage = _st
 
   // preset query object
   reset(self)
+  if (localStorage && storageKey) {
+    // try to preset search history from storage
+    const history = localStorage.getItem(storageKey)
+    if (typeof history === 'string') {
+      self.history = history.split('||')
+    }
+  }
 }
 
 /**
