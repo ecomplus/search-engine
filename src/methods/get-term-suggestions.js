@@ -32,20 +32,22 @@ export default (self, result) => {
  *
  * @example
 
-// Run search request and count total items matched
-search.fetch().then(() => console.log(search.getTotalCount()))
-
- * @example
-
-// You can also pass search result object as param
-try {
-  const result = await search.fetch()
-  if (search.getTotalCount(result) > 0) {
-    // Listing result items as logic example here
-    console.log(search.getItems(result))
-  }
-} catch (error) {
-  console.error(error)
-}
+// Run search request with wrong term and get suggestions
+search.setSearchTerm('smartprone applo').fetch()
+  .then(() => {
+    search.getTermSuggestions().forEach(({ text, options }) => {
+      const bestOption = options[0]
+      // Check match score to suggest term replace
+      if (bestOption.score >= 0.83) {
+        console.log(`should replace '${text}' by '${bestOption.text}' on search term`)
+      }
+    })
+  })
+  .catch(error => {
+    console.error(error)
+    if (error.response) {
+      console.log(error.response)
+    }
+  })
 
  */
