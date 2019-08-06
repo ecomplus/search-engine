@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/set-spec.js - Documentation</title>
+    <title>methods/get-brands.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/set-spec.js</h1>
+    <h1 class="page-title">methods/get-brands.js</h1>
     
 
     
@@ -42,78 +42,32 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>export default (self, gridId, textOptions) => {
-  // nested ELS object
-  // http://nocf-www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-nested-query.html
-  if (Array.isArray(textOptions)) {
-    // add/update filter
-    return self.mergeFilter({
-      nested: {
-        path: 'specs',
-        query: {
-          bool: {
-            filter: [{
-              term: {
-                'specs.grid': gridId
-              }
-            }, {
-              terms: {
-                'specs.text': textOptions
-              }
-            }]
-          }
-        }
-      }
-    })
-  }
+            <pre class="prettyprint source linenums"><code>import commonAggregation from './../lib/common-aggregation'
 
-  if (textOptions === null) {
-    // remove filter for current grid
-    const filters = self.dsl.query &amp;&amp; self.dsl.query.bool &amp;&amp; self.dsl.query.bool.filter
-    if (Array.isArray(filters)) {
-      for (let i = 0; i &lt; filters.length; i++) {
-        if (filters[i] &amp;&amp; filters[i].nested) {
-          const { path, query } = filters[i].nested
-          if (path === 'specs' &amp;&amp; query &amp;&amp; query.bool) {
-            // search from grid ID on nested filters
-            const rules = query.bool.filter
-            if (Array.isArray(rules) &amp;&amp; rules.find(({ term }) => term &amp;&amp; term['specs.grid'] === gridId)) {
-              // grid ID found
-              // remove filters array element
-              filters.splice(i, 1)
-              return self
-            }
-          }
-        }
-      }
-    }
-  }
+// get brand options from aggregations result
+export default (self, result) => commonAggregation(result || self.result || {}, 'brands')
 
-  return self
-}
+/**
+ * @typedef {object} aggregation
+ * @property {string} key - Brand/category name
+ * @property {number} doc_count - How many items match with the respective brand/category
+ */
 
 /**
  * @method
- * @name EcomSearch#setSpec
- * @description Add, update or remove search filter
- * by product specification based on grid ID and list of text options to match.
+ * @name EcomSearch#getBrands
+ * @description List brand options matched from search result object.
  *
- * @param {string} gridId - Grid ID such as 'size'
- * @param {array|null} textOptions - List of chosen options such as `['M', 'G']`
- * or null to clear current grid filter
- * @returns {self}
+ * @param {result} [result=self.result] - Search result object
+ * @returns {array&lt;aggregation>}
  *
  * @example
 
-// Set filter by size specification and run search request
-search.setSpec('size', ['M', 'G']).fetch()
-// Update size options and search again
-search.setSpec('size', ['P', 'M', 'G']).fetch()
-
- * @example
-
-// Remove filter by size for next search
-search.setSpec('size', null)
+// Run search request and list brand aggregations
+await search.fetch()
+search.getBrands().forEach(aggBrand => {
+  console.log(`we have ${aggBrand.doc_count} items with brand ${aggBrand.key}`)
+})
 
  */
 </code></pre>
