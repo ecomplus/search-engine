@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/get-categories.js - Documentation</title>
+    <title>methods/get-price-range.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/get-categories.js</h1>
+    <h1 class="page-title">methods/get-price-range.js</h1>
     
 
     
@@ -42,25 +42,40 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import commonAggregation from './../lib/common-aggregation'
-
-// get category options from aggregations result
-export default (self, result) => commonAggregation(result || self.result || {}, 'categories')
+            <pre class="prettyprint source linenums"><code>export default (self, result) => {
+  // get price aggregations from result object
+  if (!result) {
+    result = self.result || {}
+  }
+  const { aggregations } = result
+  return aggregations
+    ? {
+      min: (aggregations.min_price &amp;&amp; aggregations.min_price.value) || 0,
+      avg: (aggregations.avg_price &amp;&amp; aggregations.avg_price.value) || 0,
+      max: (aggregations.max_price &amp;&amp; aggregations.max_price.value) || 0
+    }
+    : {
+      min: 0,
+      avg: 0,
+      max: 0
+    }
+}
 
 /**
  * @method
- * @name EcomSearch#getCategories
- * @description List category options matched from search result object.
+ * @name EcomSearch#getPriceRange
+ * @description Get minimum, maximum and average item prices
+ * from search result object.
  *
  * @param {result} [result=self.result] - Search result object
- * @returns {array&lt;aggregation>}
+ * @returns {prices}
  *
  * @example
 
-// Run search request and list category aggregations
-await search.fetch()
-search.getCategories().forEach(aggCategory => {
-  console.log(`we have ${aggCategory.doc_count} items with category ${aggCategory.key}`)
+// Run search request and get resultant price range
+search.fetch().then(() => {
+  const { min, avg, max } = search.getPriceRange()
+  console.log(`prices => min: ${min}; max: ${max}; avg: ${avg}`)
 })
 
  */

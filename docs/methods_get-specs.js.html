@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>methods/get-categories.js - Documentation</title>
+    <title>methods/get-specs.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,7 +32,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">methods/get-categories.js</h1>
+    <h1 class="page-title">methods/get-specs.js</h1>
     
 
     
@@ -42,25 +42,50 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import commonAggregation from './../lib/common-aggregation'
+            <pre class="prettyprint source linenums"><code>export default (self, result) => {
+  // get specs nested aggregations from result object
+  if (!result) {
+    result = self.result || {}
+  }
+  if (result.aggregations) {
+    const { specs } = result.aggregations
+    if (specs &amp;&amp; specs.grid &amp;&amp; Array.isArray(specs.grid.buckets)) {
+      // map nested buckets
+      return specs.grid.buckets.map(bucket => ({
+        key: bucket.key,
+        doc_count: bucket.doc_count,
+        options: (bucket.text &amp;&amp; bucket.text.buckets) || []
+      }))
+    }
+  }
+  return []
+}
 
-// get category options from aggregations result
-export default (self, result) => commonAggregation(result || self.result || {}, 'categories')
+/**
+ * @typedef {object} spec
+ * @property {string} key - Specification grid ID
+ * @property {number} doc_count - How many items has the respective grid
+ * @property {array&lt;aggregation>} options - List of matched grid options
+ */
 
 /**
  * @method
- * @name EcomSearch#getCategories
- * @description List category options matched from search result object.
+ * @name EcomSearch#getSpecs
+ * @description List specification grids and options
+ * matched from search result object.
  *
  * @param {result} [result=self.result] - Search result object
- * @returns {array&lt;aggregation>}
+ * @returns {array&lt;spec>}
  *
  * @example
 
-// Run search request and list category aggregations
+// Run search request and list spec options
 await search.fetch()
-search.getCategories().forEach(aggCategory => {
-  console.log(`we have ${aggCategory.doc_count} items with category ${aggCategory.key}`)
+search.getSpecs().forEach(aggSpec => {
+  console.log(`${aggSpec.doc_count} items with grid ${aggSpec.key} and the following options:`)
+  aggSpec.options.forEach(aggOption => {
+    console.log(`${aggOption.key} (${aggOption.doc_count})`)
+  })
 })
 
  */
