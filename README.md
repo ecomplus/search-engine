@@ -22,7 +22,7 @@ It's available for both Node.js and browser environments.
 ### Example
 
 ```js
-// Simple example with common class methods
+// Simple search example
 search.setSearchTerm('smartphone').fetch()
   .then(result => {
     search.getItems().forEach(item => {
