@@ -7,14 +7,18 @@ export default (self, result) => {
 }
 
 /**
- * @typedef {object} suggestion
+ * @typedef {object} suggest
  * @property {string} text - The original keyword from search term
  * @property {number} offset - Position where the keyword starts on search term
  * @property {number} length - Original keyword length
- * @property {array<object>} options - Suggested options to replace original keyword
- * @property {string} options[].text - The suggested keyword
- * @property {number} options[].score - Match score up to 1
- * @property {number} options[].freq - How many items match with the suggested keyword
+ * @property {array<suggestion>} options - Suggested options to replace original keyword
+ */
+
+/**
+ * @typedef {object} suggestion
+ * @property {string} text - The suggested keyword
+ * @property {number} score - Match score up to 1
+ * @property {number} freq - How many items match with the suggested keyword
  */
 
 /**
@@ -24,7 +28,7 @@ export default (self, result) => {
  * search term from result object.
  *
  * @param {result} [result=self.result] - Search result object
- * @returns {array<suggestion>}
+ * @returns {array<suggest>}
  *
  * @example
 
