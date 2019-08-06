@@ -47,7 +47,11 @@ import getSpecs from './methods/get-specs'
  * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/search-engine/dist/ecom-search.root.min.js"></script>
  */
 
-export default function (storeId = _config.get('store_id')) {
+const _store = _config.get('store_id')
+const _key = 'ecomSeachHistory'
+const _storage = typeof window === 'object' && window.localStorage
+
+export default function (storeId = _store, storageKey = _key, localStorage = _storage) {
   const self = this
 
   /**
@@ -56,6 +60,21 @@ export default function (storeId = _config.get('store_id')) {
    * @type {number}
    */
   this.storeId = storeId
+
+  /**
+   * Item key to handle persistent search history data
+   * with [localStorage]{@link EcomSearch#localStorage}.
+   * @name EcomSearch#storageKey
+   * @type {string|null}
+   */
+  this.storageKey = storageKey
+
+  /**
+   * [Local Storage interface]{@link https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage}
+   * @name EcomSearch#localStorage
+   * @type {object}
+   */
+  this.localStorage = localStorage
 
   /**
    * Current
@@ -111,6 +130,9 @@ export default function (storeId = _config.get('store_id')) {
  * Construct a new search engine instance object.
  * @class EcomSearch
  * @param {number} [storeId=_config.get('store_id')] - Preset Store ID number
+ * @param {string|null} [storageKey='ecomSeachHistory'] - Item key to persist search history data
+ * @param {object} [localStorage=window.localStorage] -
+ * [Local Storage interface]{@link https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage}
  *
  * @example
 
