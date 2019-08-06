@@ -26,6 +26,7 @@ import getTotalCount from './methods/get-total-count'
 import getTermSuggestions from './methods/get-term-suggestions'
 import getBrands from './methods/get-brands'
 import getCategories from './methods/get-categories'
+import getPriceRange from './methods/get-price-range'
 
 /**
  * JS lib to handle products search with E-Com Plus stores.
@@ -98,6 +99,7 @@ export default function (storeId = _config.get('store_id')) {
   this.getTermSuggestions = result => getTermSuggestions(self, result)
   this.getBrands = result => getBrands(self, result)
   this.getCategories = result => getCategories(self, result)
+  this.getPriceRange = result => getPriceRange(self, result)
 
   // preset query object
   reset(self)
