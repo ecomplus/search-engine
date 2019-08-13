@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/ecomclub/search-engine/compare/v1.0.0...v1.0.1) (2019-08-13)
+
+
+### Build System
+
+* **webpack:** fix externals for lodash.utility ([424c471](https://github.com/ecomclub/search-engine/commit/424c471))
+
+
+
 ## [1.0.0](https://github.com/ecomclub/search-engine/compare/v0.10.0...v1.0.0) (2019-08-12)
 
 
