@@ -63,10 +63,15 @@ module.exports = devMode
           commonjs2: '@ecomplus/client',
           root: 'ecomClient'
         },
-        lodash: {
-          commonjs: 'lodash',
-          commonjs2: 'lodash',
-          root: '_'
+        'lodash.clonedeep': {
+          commonjs: 'lodash.clonedeep',
+          commonjs2: 'lodash.clonedeep',
+          root: ['_', 'cloneDeep']
+        },
+        'lodash.merge': {
+          commonjs: 'lodash.merge',
+          commonjs2: 'lodash.merge',
+          root: ['_', 'merge']
         }
       }
     }
