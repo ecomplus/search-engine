@@ -47,11 +47,10 @@ import getSpecs from './methods/get-specs'
  * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/search-engine/dist/ecom-search.root.min.js"></script>
  */
 
-const _store = _config.get('store_id')
 const _key = 'ecomSeachHistory'
 const _storage = typeof window === 'object' && window.localStorage
 
-export default function (storeId = _store, storageKey = _key, localStorage = _storage) {
+export default function (storeId, storageKey = _key, localStorage = _storage) {
   const self = this
 
   /**
@@ -59,7 +58,7 @@ export default function (storeId = _store, storageKey = _key, localStorage = _st
    * @name EcomSearch#storeId
    * @type {number}
    */
-  this.storeId = storeId
+  this.storeId = storeId || _config.get('store_id')
 
   /**
    * Item key to handle persistent [search history]{@link EcomSearch#history} data
