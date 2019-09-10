@@ -9,11 +9,11 @@ export default self => search({
   // save last result on instance
   self.result = data
   const { dsl, history, localStorage, storageKey } = self
-  if (dsl && dsl.suggest) {
-    // push search term to history
-    history.push(dsl.suggest.text)
+  if (dsl && dsl.suggest && dsl.suggest.text) {
+    // add search term to history
+    history.unshift(dsl.suggest.text)
     if (localStorage && storageKey) {
-      localStorage.setItem(storageKey, history.join('||'))
+      localStorage.setItem(storageKey, history.slice(0, 20).join('||'))
     }
   }
   // resolving with response data
