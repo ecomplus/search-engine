@@ -9,7 +9,7 @@ export default self => search({
   // save last result on instance
   self.result = data
   const { dsl, history, localStorage, storageKey } = self
-  if (dsl && dsl.suggest && dsl.suggest.text) {
+  if (data.hits.total && dsl && dsl.suggest && dsl.suggest.text) {
     // add search term to history
     history.unshift(dsl.suggest.text)
     if (localStorage && storageKey) {
