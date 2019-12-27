@@ -4,6 +4,7 @@ import { search } from '@ecomplus/client'
 export default (self, axiosConfig) => search({
   url: '/items.json',
   method: 'post',
+  data: self.dsl,
   axiosConfig
 }).then(({ data }) => {
   // save last result on instance
