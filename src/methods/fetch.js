@@ -1,10 +1,10 @@
 import { search } from '@ecomplus/client'
 
 // request Search API and return promise
-export default self => search({
+export default (self, axiosConfig) => search({
   url: '/items.json',
   method: 'post',
-  data: self.dsl
+  axiosConfig
 }).then(({ data }) => {
   // save last result on instance
   self.result = data
@@ -44,6 +44,9 @@ export default self => search({
  * @description Send POST request to
  * [E-Com Plus Search API]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
  * and returns promise resolved with search result.
+ *
+ * @param {object} [cfg.axiosConfig] - Additional
+ * [axios config]{@link https://github.com/axios/axios#request-config} object
  *
  * @returns {Promise<result|error>}
  *
