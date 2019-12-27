@@ -45,7 +45,7 @@ export default (self, axiosConfig) => search({
  * [E-Com Plus Search API]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
  * and returns promise resolved with search result.
  *
- * @param {object} [cfg.axiosConfig] - Additional
+ * @param {object} [axiosConfig] - Additional
  * [axios config]{@link https://github.com/axios/axios#request-config} object
  *
  * @returns {Promise<result|error>}
