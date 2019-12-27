@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/ecomclub/search-engine/compare/v1.0.5...v1.1.0) (2019-12-27)
+
+
+### Features
+
+* **fetch:** accepting additional axios config object ([acc6dae](https://github.com/ecomclub/search-engine/commit/acc6dae))
+
+
+
 ### [1.0.5](https://github.com/ecomclub/search-engine/compare/v1.0.4...v1.0.5) (2019-09-10)
 
 
