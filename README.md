@@ -2,11 +2,11 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/ecomclub/search-engine/badge)](https://www.codefactor.io/repository/github/ecomclub/search-engine)
 [![npm version](https://img.shields.io/npm/v/@ecomplus/search-engine.svg)](https://www.npmjs.org/@ecomplus/search-engine)
-[![license mit](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 JS lib to handle products search with E-Com Plus stores
 
-[Changelog](https://github.com/ecomclub/search-engine/blob/master/CHANGELOG.md)
+[CHANGELOG](https://github.com/ecomclub/search-engine/blob/master/CHANGELOG.md)
 
 ## Usage
 
@@ -40,14 +40,31 @@ search.setSearchTerm('smartphone').fetch()
 
 ### Dependencies
 
-It requires and doesn't include:
-- [`@ecomplus/utils`](https://github.com/ecomclub/ecomplus-utils)
-- [`@ecomplus/client`](https://github.com/ecomclub/ecomplus-client)
-- Some [`lodash`](https://lodash.com/) methods:
-  + [`_.merge`](https://lodash.com/docs/4.17.15#merge)
-  + [`_.cloneDeep`](https://lodash.com/docs/4.17.15#cloneDeep)
+It requires and _may not_ include:
 
-It'll be automatically imported if you're developing on Node.js
-environment or using a bundler such as Webpack,
-**in other case those libraries must be included manually on
-window scope**.
+- `core-js`;
+- [`lodash.clonedeep`](https://lodash.com/docs/4.17.15#cloneDeep);
+- [`lodash.merge`](https://lodash.com/docs/4.17.15#merge);
+- [`@ecomplus/utils`](https://github.com/ecomclub/ecomplus-utils);
+- [`@ecomplus/client`](https://github.com/ecomclub/ecomplus-client);
+
+#### Node.js
+
+```bash
+npm i --save @ecomplus/utils @ecomplus/search-engine
+```
+
+#### Webpack
+
+```bash
+npm i --save core-js @ecomplus/utils @ecomplus/search-engine
+```
+
+#### CDN
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@ecomplus/search-engine/dist/ecom-search.var.min.js"></script>
+```
+
+`_.cloneDeep`, `_.merge`, `ecomUtils` and `ecomClient` libraries
+**must be included separately** and available on window scope.
