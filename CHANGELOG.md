@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/ecomclub/search-engine/compare/v1.1.1...v2.0.0) (2019-12-31)
+
+
+### ⚠ BREAKING CHANGES
+
+* **deps:** ecomplus/utils and core-js no more direct dependencies
+
+* **deps:** fix dependencies (peer) ([a0b00e5](https://github.com/ecomclub/search-engine/commit/a0b00e5dc24f728c21f1f9f4ce2a8903bf1acc46))
+
 ### [1.1.1](https://github.com/ecomclub/search-engine/compare/v1.1.0...v1.1.1) (2019-12-27)
 
 
