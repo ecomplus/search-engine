@@ -1,7 +1,27 @@
 /**
- * https://github.com/ecomclub/search-engine
+ * JS lib to handle products search with E-Com Plus stores.
+ * {@link https://github.com/ecomclub/search-engine GitHub}
+ *
+ * @module @ecomplus/search-engine
  * @author E-Com Club <ti@e-com.club>
- * @license MIT
+ * @return {@link EcomSearch}
+ * @see EcomSearch
+ *
+ * @example
+ * // ES import default
+ * import EcomSearch from '@ecomplus/search-engine'
+ *
+ * @example
+ * // With CommonJS
+ * const EcomSearch = require('@ecomplus/search-engine')
+ *
+ * @example
+ * <!-- Global `EcomSearch` from CDN on browser -->
+ * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/search-engine/dist/ecom-search.var.min.js"></script>
+ *
+ * @example
+ * <!-- Bundle from CDN with `ecomUtils`, `ecomClient`, `_.cloneDeep` and `_.merge` -->
+ * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/search-engine/dist/ecom-search.bundle.min.js"></script>
  */
 
 import { _config } from '@ecomplus/utils'
@@ -28,24 +48,6 @@ import getBrands from './methods/get-brands'
 import getCategories from './methods/get-categories'
 import getPriceRange from './methods/get-price-range'
 import getSpecs from './methods/get-specs'
-
-/**
- * JS lib to handle products search with E-Com Plus stores.
- * @module @ecomplus/search-engine
- * @see EcomSearch
- *
- * @example
- * // ES import
- * import EcomSearch from '@ecomplus/search-engine'
- *
- * @example
- * // With CommonJS
- * const EcomSearch = require('@ecomplus/search-engine')
- *
- * @example
- * <!-- Global `EcomSearch` from CDN on browser -->
- * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/search-engine/dist/ecom-search.root.min.js"></script>
- */
 
 const _key = 'ecomSeachHistory'
 const _storage = typeof window === 'object' && window.localStorage
