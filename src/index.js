@@ -1,3 +1,9 @@
+/*!
+ * @ecomplus/search-engine
+ * (c) E-Com Club <ti@e-com.club>
+ * Released under the MIT License.
+ */
+
 /**
  * JS lib to handle products search with E-Com Plus stores.
  * {@link https://github.com/ecomclub/search-engine GitHub}
