@@ -2,9 +2,9 @@
   "name": "@ecomplus/search-engine",
   "version": "2.0.1",
   "description": "JS lib to handle products search with E-Com Plus stores",
-  "main": "dist/ecom-search.node.js",
   "module": "src/index.js",
   "browser": "dist/ecom-search.min.js",
+  "main": "dist/ecom-search.node.js",
   "jsdelivr": "dist/ecom-search.var.min.js",
   "unpkg": "dist/ecom-search.var.min.js",
   "scripts": {
@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/ecomclub/search-engine#readme",
   "peerDependencies": {
-    "@ecomplus/utils": "1.x"
+    "@ecomplus/utils": "^1.2.0"
   },
   "optionalDependencies": {
     "core-js": "3.x"
