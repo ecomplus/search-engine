@@ -30,7 +30,7 @@
  * <script src="https://cdn.jsdelivr.net/npm/@ecomplus/search-engine/dist/ecom-search.bundle.min.js"></script>
  */
 
-import { _config } from '@ecomplus/utils'
+import { $ecomConfig } from '@ecomplus/utils'
 import fetch from './methods/fetch'
 import reset from './methods/reset'
 import setSearchTerm from './methods/set-search-term'
@@ -66,7 +66,7 @@ export default function (storeId, storageKey = _key, localStorage = _storage) {
    * @name EcomSearch#storeId
    * @type {number}
    */
-  this.storeId = storeId || _config.get('store_id')
+  this.storeId = storeId || $ecomConfig.get('store_id')
 
   /**
    * Item key to handle persistent [search history]{@link EcomSearch#history} data
@@ -150,7 +150,7 @@ export default function (storeId, storageKey = _key, localStorage = _storage) {
 /**
  * Construct a new search engine instance object.
  * @class EcomSearch
- * @param {number} [storeId=_config.get('store_id')] - Preset Store ID number
+ * @param {number} [storeId=$ecomConfig.get('store_id')] - Preset Store ID number
  * @param {string|null} [storageKey='ecomSeachHistory'] - Item key to persist search history data
  * @param {object} [localStorage=window.localStorage] -
  * [Local Storage interface]{@link https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage}
@@ -162,7 +162,7 @@ const search = new EcomSearch()
  *
  * @example
 
-// Defining Store ID other than the configured on `ecomUtils._config`
+// Defining Store ID other than the configured on `$ecomConfig`
 const storeId = 2000
 const search = new EcomSearch(storeId)
 
