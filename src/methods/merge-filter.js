@@ -24,6 +24,7 @@ export default (self, filter) => {
   const filters = self.dsl.query.bool.filter
 
   // check if new filter object should be added or replace other
+  let rule
   switch (type) {
     case 'terms':
     case 'term':
@@ -43,7 +44,7 @@ export default (self, filter) => {
       break
 
     case 'nested':
-      const rule = getNestedRule(filter)
+      rule = getNestedRule(filter)
       if (rule) {
         // check field and key value for nested object filter
         const field = Object.keys(rule.term)[0]
