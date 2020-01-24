@@ -1,4 +1,4 @@
-import merge from 'lodash.merge'
+import * as merge from 'lodash.merge'
 
 export default (self, term) => {
   merge(self.dsl, {

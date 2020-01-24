@@ -1,5 +1,5 @@
 import query from './../lib/dsl'
-import cloneDeep from 'lodash.clonedeep'
+import * as cloneDeep from 'lodash.clonedeep'
 
 export default self => {
   // reset Query DSL
