@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ecomclub/search-engine.git"
+    "url": "git+https://github.com/ecomplus/search-engine.git"
   },
   "keywords": [
     "ecomplus",
@@ -27,9 +27,9 @@
   "author": "E-Com Club <ti@e-com.club>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ecomclub/search-engine/issues"
+    "url": "https://github.com/ecomplus/search-engine/issues"
   },
-  "homepage": "https://github.com/ecomclub/search-engine#readme",
+  "homepage": "https://github.com/ecomplus/search-engine#readme",
   "peerDependencies": {
     "@ecomplus/utils": "^1.2.0"
   },
@@ -67,5 +67,8 @@
     "last 1 version",
     "not dead",
     "> 0.2%"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
 }
