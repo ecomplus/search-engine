@@ -15,6 +15,15 @@ export default (self, enumOrder) => {
       })
       break
 
+    case 'news':
+      // sort by creation date after relevance
+      sort.splice(2, 0, {
+        created_at: {
+          order: 'asc'
+        }
+      })
+      break
+
     case 'lowest_price':
       // sort by price
       // lowest price -> highest price
