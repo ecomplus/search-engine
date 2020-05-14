@@ -71,7 +71,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line144">line 144</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line150">line 150</a>
     </li></ul></dd>
     
 
@@ -110,7 +110,7 @@
 
 
 
-<div class="description">
+<div class="description usertext">
     Construct a new search engine instance object.
 </div>
 
@@ -126,7 +126,7 @@
     
     <pre class="prettyprint"><code>const search = new EcomSearch()</code></pre>
 
-    <pre class="prettyprint"><code>// Defining Store ID other than the configured on `ecomUtils._config`
+    <pre class="prettyprint"><code>// Defining Store ID other than the configured on `$ecomConfig`
 const storeId = 2000
 const search = new EcomSearch(storeId)</code></pre>
 
@@ -189,7 +189,7 @@ const search = new EcomSearch(storeId)</code></pre>
             
                 <td class="default">
                 
-                    <code>_config.get('store_id')</code>
+                    <code>$ecomConfig.get('store_id')</code>
                 
                 </td>
             
@@ -332,7 +332,7 @@ const search = new EcomSearch(storeId)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line87">line 87</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line93">line 93</a>
     </li></ul></dd>
     
 
@@ -371,7 +371,7 @@ const search = new EcomSearch(storeId)</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Current
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html">Query DSL</a>
 for <a href="https://developers.e-com.plus/docs/api/#/search/items/items">Search API</a>
@@ -411,7 +411,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line80">line 80</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line86">line 86</a>
     </li></ul></dd>
     
 
@@ -450,7 +450,7 @@ or you can use instance methods listed below.
 
 
 
-<div class="description">
+<div class="description usertext">
     Search terms history.
 </div>
 
@@ -484,7 +484,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line73">line 73</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line79">line 79</a>
     </li></ul></dd>
     
 
@@ -523,7 +523,7 @@ or you can use instance methods listed below.
 
 
 
-<div class="description">
+<div class="description usertext">
     <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">Storage interface</a>.
 </div>
 
@@ -557,7 +557,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line100">line 100</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line106">line 106</a>
     </li></ul></dd>
     
 
@@ -596,7 +596,7 @@ or you can use instance methods listed below.
 
 
 
-<div class="description">
+<div class="description usertext">
     Last search result object obtained with the
 <a href="EcomSearch.html#fetch">fetch method</a>.
 </div>
@@ -634,7 +634,7 @@ or you can use instance methods listed below.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line65">line 65</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
@@ -673,7 +673,7 @@ or you can use instance methods listed below.
 
 
 
-<div class="description">
+<div class="description usertext">
     Item key to handle persistent <a href="EcomSearch.html#history">search history</a> data
 with <a href="EcomSearch.html#localStorage">localStorage</a>.
 </div>
@@ -711,7 +711,7 @@ with <a href="EcomSearch.html#localStorage">localStorage</a>.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="index.js.html">index.js</a>, <a href="index.js.html#line58">line 58</a>
+        <a href="index.js.html">index.js</a>, <a href="index.js.html#line64">line 64</a>
     </li></ul></dd>
     
 
@@ -750,7 +750,7 @@ with <a href="EcomSearch.html#localStorage">localStorage</a>.
 
 
 
-<div class="description">
+<div class="description usertext">
     Respective Store ID number.
 </div>
 
@@ -833,7 +833,7 @@ with <a href="EcomSearch.html#localStorage">localStorage</a>.
 
 
 
-<div class="description">
+<div class="description usertext">
     Send POST request to
 <a href="https://developers.e-com.plus/docs/api/#/search/items/items">E-Com Plus Search API</a>
 and returns promise resolved with search result.
@@ -1019,7 +1019,7 @@ search.fetch()
 
 
 
-<div class="description">
+<div class="description usertext">
     List brand options matched from search result object.
 </div>
 
@@ -1202,7 +1202,7 @@ search.getBrands().forEach(aggBrand => {
 
 
 
-<div class="description">
+<div class="description usertext">
     List category options matched from search result object.
 </div>
 
@@ -1385,7 +1385,7 @@ search.getCategories().forEach(aggCategory => {
 
 
 
-<div class="description">
+<div class="description usertext">
     List items from search result object.
 </div>
 
@@ -1572,7 +1572,7 @@ search.fetch().then(result => search.getItems(result).forEach(({ sku }) => conso
 
 
 
-<div class="description">
+<div class="description usertext">
     Get minimum, maximum and average item prices
 from search result object.
 </div>
@@ -1756,7 +1756,7 @@ search.fetch().then(() => {
 
 
 
-<div class="description">
+<div class="description usertext">
     List specification grids and options
 matched from search result object.
 </div>
@@ -1943,7 +1943,7 @@ search.getSpecs().forEach(aggSpec => {
 
 
 
-<div class="description">
+<div class="description usertext">
     Get list of keyword suggestions based on current
 search term from result object.
 </div>
@@ -2139,7 +2139,7 @@ search.setSearchTerm('smartprone applo').fetch()
 
 
 
-<div class="description">
+<div class="description usertext">
     Get total number of products found from search result object.
 </div>
 
@@ -2291,7 +2291,7 @@ try {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="methods_merge-filter.js.html">methods/merge-filter.js</a>, <a href="methods_merge-filter.js.html#line69">line 69</a>
+        <a href="methods_merge-filter.js.html">methods/merge-filter.js</a>, <a href="methods_merge-filter.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -2330,7 +2330,7 @@ try {
 
 
 
-<div class="description">
+<div class="description usertext">
     Add/update a filter object on current
 Query DSL filters list for next search request.
 </div>
@@ -2500,7 +2500,7 @@ search.mergeFilter(filter).fetch()</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Remove a filter object on current
 Query DSL filters list for next search request.
 </div>
@@ -2666,7 +2666,7 @@ with dot notation for nested properties</td>
 
 
 
-<div class="description">
+<div class="description usertext">
     Reset default
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html">Query DSL</a>
 for <a href="https://developers.e-com.plus/docs/api/#/search/items/items">Search API</a>
@@ -2780,7 +2780,7 @@ search.reset()</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Defines list of brand IDs to match on next search request,
 filtering product results by brand.
 </div>
@@ -2947,7 +2947,7 @@ search.setBrandIds(null)</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Defines list of brand names to match on next search request,
 filtering product results by brand.
 </div>
@@ -3114,7 +3114,7 @@ search.setBrandNames(null)</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Defines list of category IDs to match on next search request,
 filtering product results by category.
 </div>
@@ -3281,7 +3281,7 @@ search.setCategoryIds(null).fetch()</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Defines list of category names to match on next search request,
 filtering product results by category.
 </div>
@@ -3448,7 +3448,7 @@ search.setCategoryNames(null)</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Defines next page number for
 search request (paginate results) starting from 1.
 </div>
@@ -3633,7 +3633,7 @@ search.setPageNumber()</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Defines maximum number of result items for next search request.
 </div>
 
@@ -3817,7 +3817,7 @@ search.setPageSize()</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Defines range filter to match with product price
 for next search request.
 </div>
@@ -4010,7 +4010,7 @@ search.setPriceRange(null, null)</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Defines list of product IDs to match on next search request.
 </div>
 
@@ -4176,7 +4176,7 @@ search.setProductIds(null)</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Defines term to match with product name
 and/or keywords on next search request.
 </div>
@@ -4340,7 +4340,7 @@ search.setSearchTerm('notebook').fetch()</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Defines list of product SKUs to match on next search request.
 </div>
 
@@ -4467,7 +4467,7 @@ search.setSkus(null).fetch()</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="methods_set-sort-order.js.html">methods/set-sort-order.js</a>, <a href="methods_set-sort-order.js.html#line52">line 52</a>
+        <a href="methods_set-sort-order.js.html">methods/set-sort-order.js</a>, <a href="methods_set-sort-order.js.html#line61">line 61</a>
     </li></ul></dd>
     
 
@@ -4506,7 +4506,7 @@ search.setSkus(null).fetch()</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Defines most common sorting options and set
 on instance query for next search request.
 </div>
@@ -4569,10 +4569,16 @@ search.setSortOrder()</code></pre>
 <span class="param-type">'sales'</span>
 |
 
+<span class="param-type">'news'</span>
+|
+
 <span class="param-type">'lowest_price'</span>
 |
 
 <span class="param-type">'highest_price'</span>
+|
+
+<span class="param-type">'views'</span>
 
 
             
@@ -4697,7 +4703,7 @@ search.setSortOrder()</code></pre>
 
 
 
-<div class="description">
+<div class="description usertext">
     Add, update or remove search filter
 by product specification based on grid ID and list of text options to match.
 </div>
@@ -4854,7 +4860,7 @@ or null to clear current grid filter</td>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a> on Tue Dec 31 2019 18:19:58 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Wed May 13 2020 22:58:20 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
