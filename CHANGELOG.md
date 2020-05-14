@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/ecomplus/search-engine/compare/v2.0.3...v2.1.0) (2020-05-14)
+
+
+### Features
+
+* **set-sort-orders:** add 'news' option to enumOrder ([418c862](https://github.com/ecomplus/search-engine/commit/418c86286c549cb8bebb51a2709c7c327b39ef39))
+
+
+### Bug Fixes
+
+* **dsl:** add 'preference: in stock first' to default dsl query ([f813801](https://github.com/ecomplus/search-engine/commit/f813801b84581c58525d53b8861f9c8216a2f82a))
+
 ### [2.0.3](https://github.com/ecomclub/search-engine/compare/v2.0.2...v2.0.3) (2020-01-24)
 
 
