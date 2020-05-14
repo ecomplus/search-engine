@@ -1,11 +1,21 @@
 export default {
   query: {
     bool: {
-      // condition, only visible products
+      // condition: only visible products
       filter: [
         {
           term: {
             visible: true
+          }
+        }
+      ],
+      // preference: in stock first
+      should: [
+        {
+          range: {
+            quantity: {
+              gt: 0
+            }
           }
         }
       ]
