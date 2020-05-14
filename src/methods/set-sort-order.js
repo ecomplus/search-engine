@@ -64,7 +64,7 @@ export default (self, enumOrder) => {
  * @description Defines most common sorting options and set
  * on instance query for next search request.
  *
- * @param {('sales'|'lowest_price'|'highest_price')} [enumOrder='views'] - Sort option
+ * @param {('sales'|'news'|'lowest_price'|'highest_price'|'views')} [enumOrder='views'] - Sort option
  * @returns {self}
  *
  * @example
