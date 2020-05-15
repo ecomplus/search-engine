@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.2.1](https://github.com/ecomplus/search-engine/compare/v2.2.0...v2.2.1) (2020-05-15)
+
+
+### Bug Fixes
+
+* **set-sort-order:** sort 'news' by creation date desc ([bd27f9e](https://github.com/ecomplus/search-engine/commit/bd27f9eb1f5fcf5a5defffc8fd01f0069db4a6ae))
+
 ## [2.2.0](https://github.com/ecomplus/search-engine/compare/v2.1.0...v2.2.0) (2020-05-15)
 
 
