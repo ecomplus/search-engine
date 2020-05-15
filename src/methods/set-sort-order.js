@@ -44,6 +44,21 @@ export default (self, enumOrder) => {
       })
       break
 
+    case 'offers':
+      // sort by percentage offer price
+      sort.splice(1, 0, {
+        _script: {
+          type: 'number',
+          script: {
+            lang: 'painless',
+            source: "doc['price'].value > 0 && doc['base_price'].value > 0" +
+              " ? doc['base_price'].value / doc['price'].value : 0"
+          },
+          order: 'desc'
+        }
+      })
+      break
+
     default:
       // default sort by views after preseted sorting options
       sort.push({
@@ -64,7 +79,7 @@ export default (self, enumOrder) => {
  * @description Defines most common sorting options and set
  * on instance query for next search request.
  *
- * @param {('sales'|'news'|'lowest_price'|'highest_price'|'views')} [enumOrder='views'] - Sort option
+ * @param {('sales'|'news'|'lowest_price'|'highest_price'|'offers'|'views')} [enumOrder='views'] - Sort option
  * @returns {self}
  *
  * @example
