@@ -19,7 +19,7 @@ export default (self, enumOrder) => {
       // sort by creation date after relevance
       sort.splice(2, 0, {
         created_at: {
-          order: 'asc'
+          order: 'desc'
         }
       })
       break
