@@ -1,6 +1,6 @@
-export default (self, field) => {
+export default (self, field, occur = 'filter') => {
   // remove filter for current product field
-  const filters = self.dsl.query && self.dsl.query.bool && self.dsl.query.bool.filter
+  const filters = self.dsl.query && self.dsl.query.bool && self.dsl.query.bool[occur]
   if (Array.isArray(filters)) {
     for (let i = 0; i < filters.length; i++) {
       const filter = filters[i]
@@ -23,6 +23,8 @@ export default (self, field) => {
  * @param {string} field - A valid
  * [item field]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
  * with dot notation for nested properties
+ * @param {string} [occur='filter'] - Occurrence type for
+ * [boolean query]{@link https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html}
  * @returns {self}
  *
  * @example
