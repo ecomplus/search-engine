@@ -2279,7 +2279,7 @@ try {
 
     
 
-    <h4 class="name" id="mergeFilter"><span class="type-signature"></span>mergeFilter<span class="signature">(filter)</span><span class="type-signature"> &rarr; {self}</span></h4>
+    <h4 class="name" id="mergeFilter"><span class="type-signature"></span>mergeFilter<span class="signature">(filter, occur<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {self}</span></h4>
 
     
 
@@ -2291,7 +2291,7 @@ try {
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="methods_merge-filter.js.html">methods/merge-filter.js</a>, <a href="methods_merge-filter.js.html#line70">line 70</a>
+        <a href="methods_merge-filter.js.html">methods/merge-filter.js</a>, <a href="methods_merge-filter.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
@@ -2372,7 +2372,11 @@ search.mergeFilter(filter).fetch()</code></pre>
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -2397,11 +2401,63 @@ search.mergeFilter(filter).fetch()</code></pre>
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last">A valid object for Query DSL
 <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html">filter context</a></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>occur</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>'filter'</code>
+                
+                </td>
+            
+
+            <td class="description last">Occurrence type for
+<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html">boolean query</a></td>
         </tr>
 
     
@@ -2449,7 +2505,7 @@ search.mergeFilter(filter).fetch()</code></pre>
 
     
 
-    <h4 class="name" id="removeFilter"><span class="type-signature"></span>removeFilter<span class="signature">(field)</span><span class="type-signature"> &rarr; {self}</span></h4>
+    <h4 class="name" id="removeFilter"><span class="type-signature"></span>removeFilter<span class="signature">(field, occur<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {self}</span></h4>
 
     
 
@@ -2537,7 +2593,11 @@ search.removeFilter('categories.name').fetch()</code></pre>
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -2562,12 +2622,64 @@ search.removeFilter('categories.name').fetch()</code></pre>
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last">A valid
 <a href="https://developers.e-com.plus/docs/api/#/search/items/items">item field</a>
 with dot notation for nested properties</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>occur</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    <code>'filter'</code>
+                
+                </td>
+            
+
+            <td class="description last">Occurrence type for
+<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html">boolean query</a></td>
         </tr>
 
     
@@ -4137,7 +4249,7 @@ search.setProductIds(null)</code></pre>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="methods_set-search-term.js.html">methods/set-search-term.js</a>, <a href="methods_set-search-term.js.html#line37">line 37</a>
+        <a href="methods_set-search-term.js.html">methods/set-search-term.js</a>, <a href="methods_set-search-term.js.html#line33">line 33</a>
     </li></ul></dd>
     
 
@@ -4863,7 +4975,7 @@ or null to clear current grid filter</td>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Fri May 15 2020 16:48:56 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Sat May 23 2020 18:31:52 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
