@@ -1,4 +1,4 @@
-export default (self, field, prop, value) => {
+export default (self, field, prop, value, occur) => {
   // abstraction to set or remove filter by field IDs/names
   const newProp = field !== null ? `${field}.${prop}` : prop
   if (Array.isArray(value)) {
@@ -13,10 +13,10 @@ export default (self, field, prop, value) => {
       // product SKUs or IDs
       concurrentProp = prop === '_id' ? 'sku' : '_id'
     }
-    return self.removeFilter(concurrentProp).mergeFilter(filter)
+    return self.removeFilter(concurrentProp, occur).mergeFilter(filter, occur)
   } else if (value === null) {
     // just remove respective filter
-    return self.removeFilter(newProp)
+    return self.removeFilter(newProp, occur)
   }
   return self
 }
