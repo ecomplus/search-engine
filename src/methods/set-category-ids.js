@@ -1,7 +1,7 @@
 import commonFilter from './../lib/common-filter'
 
 // handle filter by category IDs
-export default (self, categoryIds) => commonFilter(self, 'categories', '_id', categoryIds)
+export default (self, categoryIds) => commonFilter(self, 'categories', '_id', categoryIds, 'must')
 
 /**
  * @method
