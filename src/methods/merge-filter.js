@@ -1,33 +1,34 @@
 import * as merge from 'lodash.merge'
 
-const getNestedRule = filter => {
+const getNestedRule = (filter, occur) => {
   // treat nested query object
   // look './set-specs.js' as example
   const query = filter && filter.nested && filter.nested.query
-  if (query && query.bool && Array.isArray(query.bool.filter)) {
-    return query.bool.filter.find(rule => rule.term)
+  if (query && query.bool && Array.isArray(query.bool[occur])) {
+    return query.bool[occur].find(rule => rule.term)
   }
   return undefined
 }
 
-export default (self, filter) => {
+export default (self, filter, occur = 'filter') => {
   const type = Object.keys(filter)[0]
   // merge general filter to current Query DSL
   // ensure query.bool.filter is array
   merge(self.dsl, {
     query: {
       bool: {
-        filter: []
+        [occur]: []
       }
     }
   })
-  const filters = self.dsl.query.bool.filter
+  const filters = self.dsl.query.bool[occur]
 
   // check if new filter object should be added or replace other
   let rule
   switch (type) {
     case 'terms':
     case 'term':
+    case 'multi_match':
     case 'range':
       if (typeof filter[type] === 'object' && filter[type] !== null) {
         const field = Object.keys(filter[type])[0]
@@ -44,14 +45,14 @@ export default (self, filter) => {
       break
 
     case 'nested':
-      rule = getNestedRule(filter)
+      rule = getNestedRule(filter, occur)
       if (rule) {
         // check field and key value for nested object filter
         const field = Object.keys(rule.term)[0]
         const key = rule.term[field]
         // run root filters list first
         for (let i = 0; i < filters.length; i++) {
-          const rule = getNestedRule(filters[i])
+          const rule = getNestedRule(filters[i], occur)
           // check field and key value
           if (rule && rule.term[field] === key) {
             // replace filter object
@@ -75,6 +76,8 @@ export default (self, filter) => {
  *
  * @param {object} filter - A valid object for Query DSL
  * [filter context]{@link https://www.elastic.co/guide/en/elasticsearch/reference/current/query-filter-context.html}
+ * @param {string} [occur='filter'] - Occurrence type for
+ * [boolean query]{@link https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-bool-query.html}
  * @returns {self}
  *
  * @example
