@@ -1,23 +1,19 @@
 import * as merge from 'lodash.merge'
 
 export default (self, term) => {
-  merge(self.dsl, {
-    // match name and/or keyword with term
-    // https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html
-    query: {
-      bool: {
-        must: {
-          multi_match: {
-            query: term,
-            fields: [
-              'name',
-              'keywords'
-            ]
-          }
-        }
-      }
-    },
+  // match name and/or keyword with term
+  // https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-multi-match-query.html
+  self.mergeFilter({
+    multi_match: {
+      query: term,
+      fields: [
+        'name',
+        'keywords'
+      ]
+    }
+  }, 'must')
 
+  merge(self.dsl, {
     // handle terms suggestion
     // 'did you mean?'
     // https://www.elastic.co/guide/en/elasticsearch/reference/current/search-suggesters.html
