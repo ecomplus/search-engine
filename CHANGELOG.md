@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/ecomplus/search-engine/compare/v2.2.1...v2.3.0) (2020-05-23)
+
+
+### Features
+
+* **merge-filter:** add/handling occur param (occurency type) ([b4ef3ee](https://github.com/ecomplus/search-engine/commit/b4ef3ee6d99570c07e721b908d04657449b8ddd1))
+* **remove-filter:** add/handling occur param (occurency type) ([fb0ba8d](https://github.com/ecomplus/search-engine/commit/fb0ba8df081fe171a36253446703d79249b5e146))
+
+
+### Bug Fixes
+
+* **set-category-ids:** using 'must' to handle multiple categories ([78c90e8](https://github.com/ecomplus/search-engine/commit/78c90e8cc26e59c79fe61826220393f12ac957e7))
+* **set-category-names:** using 'must' to handle multiple categories ([6d2f03c](https://github.com/ecomplus/search-engine/commit/6d2f03cc4de7aabda657509c0925eb3639655be8))
+* **set-search-term:** merge filter to prevent overriting 'must' queries ([bb689ea](https://github.com/ecomplus/search-engine/commit/bb689ea135230483f1e023cb29a32d42d759016f))
+
 ### [2.2.1](https://github.com/ecomplus/search-engine/compare/v2.2.0...v2.2.1) (2020-05-15)
 
 
