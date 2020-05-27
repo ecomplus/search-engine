@@ -25,21 +25,20 @@ export default (self, enumOrder) => {
       break
 
     case 'lowest_price':
-      // sort by price
-      // lowest price -> highest price
-      sort.splice(1, 0, {
-        price: {
-          order: 'asc'
-        }
-      })
-      break
-
     case 'highest_price':
-      // sort by price
-      // highest price -> lowest price
+      // sort by price after stock and before relevance
       sort.splice(1, 0, {
-        price: {
+        _script: {
+          type: 'number',
+          script: {
+            lang: 'painless',
+            source: "doc['quantity'].value > 0 ? 1 : 0"
+          },
           order: 'desc'
+        }
+      }, {
+        price: {
+          order: enumOrder === 'lowest_price' ? 'asc' : 'desc'
         }
       })
       break
@@ -51,7 +50,7 @@ export default (self, enumOrder) => {
           type: 'number',
           script: {
             lang: 'painless',
-            source: "doc['price'].value > 0 && doc['base_price'].value > 0" +
+            source: "doc['quantity'].value > 0 && doc['price'].value > 0 && doc['base_price'].value > 0" +
               " ? doc['base_price'].value / doc['price'].value : 0"
           },
           order: 'desc'
