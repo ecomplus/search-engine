@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.3.1](https://github.com/ecomplus/search-engine/compare/v2.3.0...v2.3.1) (2020-05-27)
+
+
+### Bug Fixes
+
+* **set-sort-order:** ensure ordering in stock first on sort options ([8f34ae6](https://github.com/ecomplus/search-engine/commit/8f34ae6f90b7dfabdca09385ff29bd68336d0bbd))
+
 ## [2.3.0](https://github.com/ecomplus/search-engine/compare/v2.2.1...v2.3.0) (2020-05-23)
 
 
