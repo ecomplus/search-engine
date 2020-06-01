@@ -42,8 +42,8 @@
     "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.0",
-    "@babel/preset-env": "^7.10.0",
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@ecomplus/utils": "^1.4.1",
