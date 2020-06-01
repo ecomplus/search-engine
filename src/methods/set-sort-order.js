@@ -1,5 +1,16 @@
 import query from './../lib/dsl'
 
+const inStockSort = {
+  _script: {
+    type: 'number',
+    script: {
+      lang: 'painless',
+      source: "doc['quantity'].value > 0 ? 1 : 0"
+    },
+    order: 'desc'
+  }
+}
+
 export default (self, enumOrder) => {
   // get default sort array
   const sort = query.sort.slice()
@@ -8,7 +19,7 @@ export default (self, enumOrder) => {
   switch (enumOrder) {
     case 'sales':
       // sort by sales after relevance
-      sort.splice(2, 0, {
+      sort.splice(2, 0, inStockSort, {
         sales: {
           order: 'desc'
         }
@@ -17,7 +28,7 @@ export default (self, enumOrder) => {
 
     case 'news':
       // sort by creation date after relevance
-      sort.splice(2, 0, {
+      sort.splice(2, 0, inStockSort, {
         created_at: {
           order: 'desc'
         }
@@ -27,16 +38,7 @@ export default (self, enumOrder) => {
     case 'lowest_price':
     case 'highest_price':
       // sort by price after stock and before relevance
-      sort.splice(1, 0, {
-        _script: {
-          type: 'number',
-          script: {
-            lang: 'painless',
-            source: "doc['quantity'].value > 0 ? 1 : 0"
-          },
-          order: 'desc'
-        }
-      }, {
+      sort.splice(1, 0, inStockSort, {
         price: {
           order: enumOrder === 'lowest_price' ? 'asc' : 'desc'
         }
