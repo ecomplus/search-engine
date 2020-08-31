@@ -37,13 +37,13 @@
     "core-js": "3.x"
   },
   "dependencies": {
-    "@ecomplus/client": "^2.0.4",
+    "@ecomplus/client": "^2.1.0",
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.10.4",
-    "@babel/preset-env": "^7.10.4",
+    "@babel/core": "^7.11.4",
+    "@babel/preset-env": "^7.11.0",
     "@commitlint/cli": "^9.1.2",
     "@commitlint/config-conventional": "^9.1.2",
     "@ecomplus/utils": "^1.4.1",
@@ -51,10 +51,10 @@
     "core-js": "^3.6.5",
     "docdash": "^1.2.0",
     "husky": "^4.2.5",
-    "jsdoc": "^3.6.4",
+    "jsdoc": "^3.6.5",
     "standard": "^14.3.4",
     "standard-version": "^9.0.0",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   },
