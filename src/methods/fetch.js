@@ -1,33 +1,65 @@
 import { search } from '@ecomplus/client'
 
-// request Search API and return promise
-export default (self, axiosConfig) => search({
-  url: '/items.json',
-  method: 'post',
-  data: self.dsl,
-  axiosConfig
-}).then(({ data }) => {
-  // save last result on instance
-  self.result = data
-  const { dsl, history, localStorage, storageKey } = self
-  if (data.hits.total && dsl && dsl.suggest) {
-    const { text } = dsl.suggest
-    if (text) {
-      // add search term to history
-      const index = history.indexOf(text)
-      if (index > -1) {
-        // prevent duplicated term
-        history.splice(index, 1)
-      }
-      history.unshift(text)
-      if (localStorage && storageKey) {
-        localStorage.setItem(storageKey, history.slice(0, 20).join('||'))
-      }
+export default (self, isSimpleSearch, axiosConfig) => {
+  // mount axios req options for complex or simpĺe search
+  const reqOptions = {
+    url: '/items.json'
+  }
+  if (isSimpleSearch === true) {
+    // https://www.elastic.co/guide/en/elasticsearch/reference/6.3/search-uri-request.html
+    const { query } = self.dsl
+    if (query && query.bool && Array.isArray(query.bool.filter)) {
+      // parse query filters to string
+      let queryString = ''
+      query.bool.filter.forEach(({ term, terms }, i) => {
+        if (i > 0) {
+          queryString += ' AND '
+        }
+        const condition = term || terms
+        if (condition) {
+          const field = Object.keys(condition)[0]
+          const value = condition[field]
+          queryString += `${field}:${(Array.isArray(value) ? `("${value.join('" OR "')}")` : value)}`
+        }
+      })
+      reqOptions.url += `?q=${encodeURIComponent(queryString)}`
+    }
+  } else {
+    reqOptions.method = 'post'
+    reqOptions.data = self.dsl
+    if (isSimpleSearch && !axiosConfig) {
+      // fallback for old reference with `fetch(axiosConfig)`
+      reqOptions.axiosConfig = isSimpleSearch
     }
   }
-  // resolving with response data
-  return data
-})
+  if (axiosConfig) {
+    reqOptions.axiosConfig = axiosConfig
+  }
+
+  // request Search API and return promise
+  return search(reqOptions).then(({ data }) => {
+    // save last result on instance
+    self.result = data
+    const { dsl, history, localStorage, storageKey } = self
+    if (data.hits.total && dsl && dsl.suggest) {
+      const { text } = dsl.suggest
+      if (text) {
+        // add search term to history
+        const index = history.indexOf(text)
+        if (index > -1) {
+          // prevent duplicated term
+          history.splice(index, 1)
+        }
+        history.unshift(text)
+        if (localStorage && storageKey) {
+          localStorage.setItem(storageKey, history.slice(0, 20).join('||'))
+        }
+      }
+    }
+    // resolving with response data
+    return data
+  })
+}
 
 /**
  * @typedef {object} result
@@ -46,6 +78,7 @@ export default (self, axiosConfig) => search({
  * [E-Com Plus Search API]{@link https://developers.e-com.plus/docs/api/#/search/items/items}
  * and returns promise resolved with search result.
  *
+ * @param {boolean} [isSimpleSearch=false] - Handle simple (and faster) search without sort and aggregations
  * @param {object} [axiosConfig] - Additional
  * [axios config]{@link https://github.com/axios/axios#request-config} object
  *

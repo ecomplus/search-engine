@@ -112,7 +112,7 @@ export default function (storeId, storageKey = _key, localStorage = _storage) {
   this.result = undefined
 
   // instance methods
-  this.fetch = () => fetch(self)
+  this.fetch = (isSimpleSearch, axiosConfig) => fetch(self, isSimpleSearch, axiosConfig)
   this.reset = () => reset(self)
   this.setSearchTerm = term => setSearchTerm(self, term)
   this.setPageNumber = page => setPageNumber(self, page)
