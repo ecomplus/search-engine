@@ -27,9 +27,10 @@ export default (self, enumOrder) => {
       break
 
     case 'news':
-      // sort by creation date after relevance
-      sort.splice(2, 0, inStockSort, {
-        created_at: {
+      // sort by hex ID after relevance replacing score sort
+      sort[sort.length - 1] = inStockSort
+      sort.push({
+        _id: {
           order: 'desc'
         }
       })
@@ -67,6 +68,8 @@ export default (self, enumOrder) => {
           order: 'desc'
         }
       })
+      // sort by stock right after relevance
+      sort.splice(2, 0, inStockSort)
   }
 
   // set instance query sort
