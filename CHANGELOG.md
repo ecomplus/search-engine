@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/ecomplus/search-engine/compare/v2.3.2...v2.4.0) (2020-09-10)
+
+
+### Features
+
+* **simple-search:** add `isSimpleSearch` param to fetch method ([#1](https://github.com/ecomplus/search-engine/issues/1)) ([21ac233](https://github.com/ecomplus/search-engine/commit/21ac2332083c023b9365619e8867231df1f4316c))
+
+
+### Bug Fixes
+
+* **set-sort-order:** ensure in stock sort with default sort option (views) ([78e82e7](https://github.com/ecomplus/search-engine/commit/78e82e7250e2d6aa2719779010096e386e36c2f8))
+
 ### [2.3.2](https://github.com/ecomplus/search-engine/compare/v2.3.1...v2.3.2) (2020-06-01)
 
 
