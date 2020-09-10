@@ -37,7 +37,7 @@
     "core-js": "3.x"
   },
   "dependencies": {
-    "@ecomplus/client": "^2.1.0",
+    "@ecomplus/client": "^2.1.1",
     "lodash.clonedeep": "^4.5.0",
     "lodash.merge": "^4.6.2"
   },
