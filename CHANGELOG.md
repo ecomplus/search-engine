@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.1](https://github.com/ecomplus/search-engine/compare/v2.4.0...v2.4.1) (2020-09-11)
+
+
+### Bug Fixes
+
+* **fetch:** handle pagination for simple search request ([8fbaf01](https://github.com/ecomplus/search-engine/commit/8fbaf015d7bba94a4486935b5506776e95d03d15))
+
 ## [2.4.0](https://github.com/ecomplus/search-engine/compare/v2.3.2...v2.4.0) (2020-09-10)
 
 
