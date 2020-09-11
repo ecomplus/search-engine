@@ -3,11 +3,14 @@ import { search } from '@ecomplus/client'
 export default (self, isSimpleSearch, axiosConfig) => {
   // mount axios req options for complex or simpĺe search
   const reqOptions = {
-    url: '/items.json'
+    url: '/items.json',
+    axiosConfig
   }
+
   if (isSimpleSearch === true) {
     // https://www.elastic.co/guide/en/elasticsearch/reference/6.3/search-uri-request.html
     const { query } = self.dsl
+    reqOptions.url += '?q='
     if (query && query.bool && Array.isArray(query.bool.filter)) {
       // parse query filters to string
       let queryString = ''
@@ -19,11 +22,17 @@ export default (self, isSimpleSearch, axiosConfig) => {
         if (condition) {
           const field = Object.keys(condition)[0]
           const value = condition[field]
-          queryString += `${field}:${(Array.isArray(value) ? `("${value.join('" OR "')}")` : value)}`
+          queryString += `${field}:${(Array.isArray(value) ? `("${value.join('" "')}")` : value)}`
         }
       })
-      reqOptions.url += `?q=${encodeURIComponent(queryString)}`
+      reqOptions.url += encodeURIComponent(queryString)
     }
+    // handle pagination
+    ;['from', 'size'].forEach(field => {
+      if (self.dsl[field]) {
+        reqOptions.url += `&${field}=${self.dsl[field]}`
+      }
+    })
   } else {
     reqOptions.method = 'post'
     reqOptions.data = self.dsl
@@ -31,9 +40,6 @@ export default (self, isSimpleSearch, axiosConfig) => {
       // fallback for old reference with `fetch(axiosConfig)`
       reqOptions.axiosConfig = isSimpleSearch
     }
-  }
-  if (axiosConfig) {
-    reqOptions.axiosConfig = axiosConfig
   }
 
   // request Search API and return promise
