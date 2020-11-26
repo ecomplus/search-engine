@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/ecomplus/search-engine/compare/v2.4.1...v2.5.0) (2020-11-26)
+
+
+### Features
+
+* **set-sort-order:** accepting any valid item sortable field (asc by default) ([4c3cab4](https://github.com/ecomplus/search-engine/commit/4c3cab49f3215c7609bc469f64d713b23d979f20))
+
 ### [2.4.1](https://github.com/ecomplus/search-engine/compare/v2.4.0...v2.4.1) (2020-09-11)
 
 
