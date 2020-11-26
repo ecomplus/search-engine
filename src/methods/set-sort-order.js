@@ -96,7 +96,7 @@ export default (self, enumOrder) => {
  * on instance query for next search request.
  *
  * @param {('sales'|'news'|'lowest_price'|'highest_price'|'offers'|'name'|'sku'|'views')} [enumOrder='views'] -
- * Sort option enum or valid sortable item field
+ * Sort option enum or valid asc sortable item field
  * @returns {self}
  *
  * @example
