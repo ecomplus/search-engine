@@ -76,7 +76,7 @@ export default (self, enumOrder) => {
       break
 
     default:
-      // alphabetical order by 'name', 'sku' or any
+      // alphabetical order by 'slug', 'sku' or any
       sort.splice(1, 0, inStockSort, {
         [enumOrder]: {
           order: 'asc'
@@ -95,7 +95,7 @@ export default (self, enumOrder) => {
  * @description Defines most common sorting options and set
  * on instance query for next search request.
  *
- * @param {('sales'|'news'|'lowest_price'|'highest_price'|'offers'|'name'|'sku'|'views')} [enumOrder='views'] -
+ * @param {('sales'|'news'|'lowest_price'|'highest_price'|'offers'|'slug'|'sku'|'views')} [enumOrder='views'] -
  * Sort option enum or valid asc sortable item field
  * @returns {self}
  *
