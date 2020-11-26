@@ -61,7 +61,10 @@ export default (self, enumOrder) => {
       })
       break
 
-    default:
+    case 'views':
+    case '':
+    case undefined:
+    case null:
       // default sort by views after preseted sorting options
       sort.push({
         views: {
@@ -70,6 +73,15 @@ export default (self, enumOrder) => {
       })
       // sort by stock right after relevance
       sort.splice(2, 0, inStockSort)
+      break
+
+    default:
+      // alphabetical order by 'name', 'sku' or any
+      sort.splice(1, 0, inStockSort, {
+        [enumOrder]: {
+          order: 'asc'
+        }
+      })
   }
 
   // set instance query sort
@@ -83,7 +95,8 @@ export default (self, enumOrder) => {
  * @description Defines most common sorting options and set
  * on instance query for next search request.
  *
- * @param {('sales'|'news'|'lowest_price'|'highest_price'|'offers'|'views')} [enumOrder='views'] - Sort option
+ * @param {('sales'|'news'|'lowest_price'|'highest_price'|'offers'|'name'|'sku'|'views')} [enumOrder='views'] -
+ * Sort option enum or valid sortable item field
  * @returns {self}
  *
  * @example
