@@ -1,16 +1,5 @@
 import query from './../lib/dsl'
 
-const inStockSort = {
-  _script: {
-    type: 'number',
-    script: {
-      lang: 'painless',
-      source: "doc['quantity'].value > 0 ? 1 : 0"
-    },
-    order: 'desc'
-  }
-}
-
 export default (self, enumOrder) => {
   // get default sort array
   const sort = query.sort.slice()
@@ -19,7 +8,7 @@ export default (self, enumOrder) => {
   switch (enumOrder) {
     case 'sales':
       // sort by sales after relevance
-      sort.splice(2, 0, inStockSort, {
+      sort.splice(2, 0, {
         sales: {
           order: 'desc'
         }
@@ -28,18 +17,17 @@ export default (self, enumOrder) => {
 
     case 'news':
       // sort by hex ID after relevance replacing score sort
-      sort[sort.length - 1] = inStockSort
-      sort.push({
+      sort[sort.length - 1] = {
         _id: {
           order: 'desc'
         }
-      })
+      }
       break
 
     case 'lowest_price':
     case 'highest_price':
       // sort by price after stock and before relevance
-      sort.splice(1, 0, inStockSort, {
+      sort.splice(1, 0, {
         price: {
           order: enumOrder === 'lowest_price' ? 'asc' : 'desc'
         }
@@ -53,7 +41,7 @@ export default (self, enumOrder) => {
           type: 'number',
           script: {
             lang: 'painless',
-            source: "doc['quantity'].value > 0 && doc['price'].value > 0 && doc['base_price'].value > 0" +
+            source: "doc['price'].value > 0 && doc['base_price'].value > 0" +
               " ? doc['base_price'].value / doc['price'].value : 0"
           },
           order: 'desc'
@@ -71,13 +59,11 @@ export default (self, enumOrder) => {
           order: 'desc'
         }
       })
-      // sort by stock right after relevance
-      sort.splice(2, 0, inStockSort)
       break
 
     default:
       // alphabetical order by 'slug', 'sku' or any
-      sort.splice(1, 0, inStockSort, {
+      sort.splice(1, 0, {
         [enumOrder]: {
           order: 'asc'
         }
