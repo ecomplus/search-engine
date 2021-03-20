@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.1](https://github.com/ecomplus/search-engine/compare/v2.5.0...v2.5.1) (2021-03-20)
+
+
+### Bug Fixes
+
+* **set-sort-order:** check price effective dates for 'offers' sort ([92cf8dc](https://github.com/ecomplus/search-engine/commit/92cf8dc88d6a0d8cccf9a1aaa5e2716140a1483f))
+
 ## [2.5.0](https://github.com/ecomplus/search-engine/compare/v2.4.1...v2.5.0) (2020-11-26)
 
 
