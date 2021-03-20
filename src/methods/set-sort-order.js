@@ -3,6 +3,7 @@ import query from './../lib/dsl'
 export default (self, enumOrder) => {
   // get default sort array
   const sort = query.sort.slice()
+  let timestamp
 
   // defines most common sorting options
   switch (enumOrder) {
@@ -36,12 +37,17 @@ export default (self, enumOrder) => {
 
     case 'offers':
       // sort by percentage offer price
+      timestamp = Date.now()
       sort.splice(1, 0, {
         _script: {
           type: 'number',
           script: {
             lang: 'painless',
             source: "doc['price'].value > 0 && doc['base_price'].value > 0" +
+              " && (doc['price_effective_date.start'].empty || " +
+                `doc['price_effective_date.start'].date.millis <= ${timestamp}L)` +
+              " && (doc['price_effective_date.end'].empty || " +
+                `doc['price_effective_date.end'].date.millis >= ${timestamp}L)` +
               " ? doc['base_price'].value / doc['price'].value : 0"
           },
           order: 'desc'
