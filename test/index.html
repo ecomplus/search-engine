@@ -14,7 +14,14 @@
     <script src="ecom-search.min.js"></script>
     <script>
       const search = new EcomSearch()
-      search.fetch().then(console.log).catch(console.error)
+      EcomSearch.setWarehouse('MG')
+      search.fetch()
+        .then(result => {
+          document.getElementById('app').innerHTML = '<hr>' +
+            search.getItems().map(({ name }) => name).join('<br>')
+          console.log(result)
+        })
+        .catch(console.error)
     </script>
   </body>
 </html>
