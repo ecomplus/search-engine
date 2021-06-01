@@ -27,7 +27,7 @@
 
 <nav >
     
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomSearch.html">EcomSearch</a><ul class='methods'><li data-type='method'><a href="EcomSearch.html#fetch">fetch</a></li><li data-type='method'><a href="EcomSearch.html#getBrands">getBrands</a></li><li data-type='method'><a href="EcomSearch.html#getCategories">getCategories</a></li><li data-type='method'><a href="EcomSearch.html#getItems">getItems</a></li><li data-type='method'><a href="EcomSearch.html#getPriceRange">getPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#getSpecs">getSpecs</a></li><li data-type='method'><a href="EcomSearch.html#getTermSuggestions">getTermSuggestions</a></li><li data-type='method'><a href="EcomSearch.html#getTotalCount">getTotalCount</a></li><li data-type='method'><a href="EcomSearch.html#mergeFilter">mergeFilter</a></li><li data-type='method'><a href="EcomSearch.html#removeFilter">removeFilter</a></li><li data-type='method'><a href="EcomSearch.html#reset">reset</a></li><li data-type='method'><a href="EcomSearch.html#setBrandIds">setBrandIds</a></li><li data-type='method'><a href="EcomSearch.html#setBrandNames">setBrandNames</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryIds">setCategoryIds</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryNames">setCategoryNames</a></li><li data-type='method'><a href="EcomSearch.html#setPageNumber">setPageNumber</a></li><li data-type='method'><a href="EcomSearch.html#setPageSize">setPageSize</a></li><li data-type='method'><a href="EcomSearch.html#setPriceRange">setPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#setProductIds">setProductIds</a></li><li data-type='method'><a href="EcomSearch.html#setSearchTerm">setSearchTerm</a></li><li data-type='method'><a href="EcomSearch.html#setSkus">setSkus</a></li><li data-type='method'><a href="EcomSearch.html#setSortOrder">setSortOrder</a></li><li data-type='method'><a href="EcomSearch.html#setSpec">setSpec</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_search-engine.html">@ecomplus/search-engine</a></li></ul><h3><a href="global.html">Global</a></h3>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomSearch.html">EcomSearch</a><ul class='methods'><li data-type='method'><a href="EcomSearch.html#fetch">fetch</a></li><li data-type='method'><a href="EcomSearch.html#getBrands">getBrands</a></li><li data-type='method'><a href="EcomSearch.html#getCategories">getCategories</a></li><li data-type='method'><a href="EcomSearch.html#getItems">getItems</a></li><li data-type='method'><a href="EcomSearch.html#getPriceRange">getPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#getSpecs">getSpecs</a></li><li data-type='method'><a href="EcomSearch.html#getTermSuggestions">getTermSuggestions</a></li><li data-type='method'><a href="EcomSearch.html#getTotalCount">getTotalCount</a></li><li data-type='method'><a href="EcomSearch.html#mergeFilter">mergeFilter</a></li><li data-type='method'><a href="EcomSearch.html#removeFilter">removeFilter</a></li><li data-type='method'><a href="EcomSearch.html#reset">reset</a></li><li data-type='method'><a href="EcomSearch.html#setBrandIds">setBrandIds</a></li><li data-type='method'><a href="EcomSearch.html#setBrandNames">setBrandNames</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryIds">setCategoryIds</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryNames">setCategoryNames</a></li><li data-type='method'><a href="EcomSearch.html#setPageNumber">setPageNumber</a></li><li data-type='method'><a href="EcomSearch.html#setPageSize">setPageSize</a></li><li data-type='method'><a href="EcomSearch.html#setPriceRange">setPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#setProductIds">setProductIds</a></li><li data-type='method'><a href="EcomSearch.html#setSearchTerm">setSearchTerm</a></li><li data-type='method'><a href="EcomSearch.html#setSkus">setSkus</a></li><li data-type='method'><a href="EcomSearch.html#setSortOrder">setSortOrder</a></li><li data-type='method'><a href="EcomSearch.html#setSpec">setSpec</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_search-engine.html">@ecomplus/search-engine</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addGlobalFilter">addGlobalFilter</a></li><li><a href="global.html#setSalesChannel">setSalesChannel</a></li><li><a href="global.html#setWarehouse">setWarehouse</a></li></ul>
 </nav>
 
 <div id="main">
@@ -44,26 +44,16 @@
         <article>
             <pre class="prettyprint source linenums"><code>import query from './../lib/dsl'
 
-const inStockSort = {
-  _script: {
-    type: 'number',
-    script: {
-      lang: 'painless',
-      source: "doc['quantity'].value > 0 ? 1 : 0"
-    },
-    order: 'desc'
-  }
-}
-
 export default (self, enumOrder) => {
   // get default sort array
   const sort = query.sort.slice()
+  let timestamp
 
   // defines most common sorting options
   switch (enumOrder) {
     case 'sales':
       // sort by sales after relevance
-      sort.splice(2, 0, inStockSort, {
+      sort.splice(2, 0, {
         sales: {
           order: 'desc'
         }
@@ -72,18 +62,17 @@ export default (self, enumOrder) => {
 
     case 'news':
       // sort by hex ID after relevance replacing score sort
-      sort[sort.length - 1] = inStockSort
-      sort.push({
+      sort[sort.length - 1] = {
         _id: {
           order: 'desc'
         }
-      })
+      }
       break
 
     case 'lowest_price':
     case 'highest_price':
       // sort by price after stock and before relevance
-      sort.splice(1, 0, inStockSort, {
+      sort.splice(1, 0, {
         price: {
           order: enumOrder === 'lowest_price' ? 'asc' : 'desc'
         }
@@ -92,12 +81,17 @@ export default (self, enumOrder) => {
 
     case 'offers':
       // sort by percentage offer price
+      timestamp = Date.now()
       sort.splice(1, 0, {
         _script: {
           type: 'number',
           script: {
             lang: 'painless',
-            source: "doc['quantity'].value > 0 &amp;&amp; doc['price'].value > 0 &amp;&amp; doc['base_price'].value > 0" +
+            source: "doc['price'].value > 0 &amp;&amp; doc['base_price'].value > 0" +
+              " &amp;&amp; (doc['price_effective_date.start'].empty || " +
+                `doc['price_effective_date.start'].date.millis &lt;= ${timestamp}L)` +
+              " &amp;&amp; (doc['price_effective_date.end'].empty || " +
+                `doc['price_effective_date.end'].date.millis >= ${timestamp}L)` +
               " ? doc['base_price'].value / doc['price'].value : 0"
           },
           order: 'desc'
@@ -115,13 +109,11 @@ export default (self, enumOrder) => {
           order: 'desc'
         }
       })
-      // sort by stock right after relevance
-      sort.splice(2, 0, inStockSort)
       break
 
     default:
       // alphabetical order by 'slug', 'sku' or any
-      sort.splice(1, 0, inStockSort, {
+      sort.splice(1, 0, {
         [enumOrder]: {
           order: 'asc'
         }
@@ -169,7 +161,7 @@ search.setSortOrder()
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> on Thu Nov 26 2020 20:36:12 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Mon May 31 2021 21:14:40 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>

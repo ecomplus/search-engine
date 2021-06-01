@@ -3,7 +3,7 @@
 <head>
     
     <meta charset="utf-8">
-    <title>@ecomplus/search-engine - Documentation</title>
+    <title>modifiers/set-sales-channel.js - Documentation</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -32,176 +32,33 @@
 
 <div id="main">
     
-    <h1 class="page-title">@ecomplus/search-engine</h1>
+    <h1 class="page-title">modifiers/set-sales-channel.js</h1>
     
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-    
-</header>
-
-<article>
-    
-        <div class="container-overview">
-        
-            
-                <div class="description usertext">JS lib to handle products search with E-Com Plus stores.
-<a href="https://github.com/ecomclub/search-engine">GitHub</a></div>
-            
-
-            
-                
-
-
-
-
-<dl class="details">
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="constructor.js.html">constructor.js</a>, <a href="constructor.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li><a href="mailto:ti@e-com.club">E-Com Club</a></li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="EcomSearch.html">EcomSearch</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h5>Examples</h5>
-    
-    <pre class="prettyprint"><code>// ES import default
-import EcomSearch from '@ecomplus/search-engine'</code></pre>
-
-    <pre class="prettyprint"><code>// With CommonJS
-const EcomSearch = require('@ecomplus/search-engine')</code></pre>
-
-    <pre class="prettyprint"><code>&lt;!-- Global `EcomSearch` from CDN on browser -->
-&lt;script src="https://cdn.jsdelivr.net/npm/@ecomplus/search-engine/dist/ecom-search.var.min.js">&lt;/script></code></pre>
-
-    <pre class="prettyprint"><code>&lt;!-- Bundle from CDN with `ecomUtils`, `ecomClient`, `_.cloneDeep` and `_.merge` -->
-&lt;script src="https://cdn.jsdelivr.net/npm/@ecomplus/search-engine/dist/ecom-search.bundle.min.js">&lt;/script></code></pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    <a href="EcomSearch.html">EcomSearch</a>
-</div>
-
-
-
-    
-
-
-
-            
-        
-        </div>
-    
-
-    
-
-    
-
-    
-    
-    
-
-     
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import addGlobalFilter from './add-global-filter'
+
+export default channelId => addGlobalFilter('channel_id', channelId)
+
+/**
+ * @method
+ * @name setSalesChannel
+ * @description Set channel ID for searches in all instances.
+ * @param {number} channelId - Sales channel ID
+ *
+ * @example
+ * import { setSalesChannel } from '@ecomplus/search-engine'
+ * setSalesChannel(123)
+ */
+</code></pre>
+        </article>
+    </section>
 
 
 
