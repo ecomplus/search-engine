@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.6.0](https://github.com/ecomplus/search-engine/compare/v2.5.1...v2.6.0) (2021-06-01)
+
+
+### Features
+
+* **add-global-filter:** abstraction to add custom DSL middleware for simple search filter ([e72e65f](https://github.com/ecomplus/search-engine/commit/e72e65f4a2b8c9f6f8a87410bdd9a6b51a346859))
+* **dsl-middlewares:** custom dsl parses before fetch with DSL middleware functions ([3ed2d0c](https://github.com/ecomplus/search-engine/commit/3ed2d0cf55ee9454644d336d75cedf69a16a9563))
+* **exports:** named exports with global modifiers ([4b64dd4](https://github.com/ecomplus/search-engine/commit/4b64dd4d7c7ab6623d3605ecf0a707213a4b9807))
+* **set-sales-channel:** set channel id for all search instances with `setSalesChannel` ([fb7cea4](https://github.com/ecomplus/search-engine/commit/fb7cea4afdc22e92b347a53f1a1866f497fd2245))
+* **set-warehouse:** ser warehouse code for all search instances with `setWarehouse` ([a4273c1](https://github.com/ecomplus/search-engine/commit/a4273c17f3e1ba0bc932864d49317c3e308846f9))
+
 ### [2.5.1](https://github.com/ecomplus/search-engine/compare/v2.5.0...v2.5.1) (2021-03-20)
 
 
