@@ -1,4 +1,6 @@
 import { search } from '@ecomplus/client'
+import * as cloneDeep from 'lodash.clonedeep'
+import dslMiddlewares from './../lib/dsl-middlewares'
 
 export default (self, isSimpleSearch, axiosConfig) => {
   // mount axios req options for complex or simpĺe search
@@ -7,9 +9,20 @@ export default (self, isSimpleSearch, axiosConfig) => {
     axiosConfig
   }
 
+  // prepare search DSL
+  let dsl = cloneDeep(self.dsl)
+  dslMiddlewares.forEach(fn => {
+    if (typeof fn === 'function') {
+      const _dsl = fn(dsl)
+      if (_dsl) {
+        dsl = _dsl
+      }
+    }
+  })
+
   if (isSimpleSearch === true) {
     // https://www.elastic.co/guide/en/elasticsearch/reference/6.3/search-uri-request.html
-    const { query } = self.dsl
+    const { query } = dsl
     reqOptions.url += '?q='
     if (query && query.bool && Array.isArray(query.bool.filter)) {
       // parse query filters to string
@@ -29,13 +42,13 @@ export default (self, isSimpleSearch, axiosConfig) => {
     }
     // handle pagination
     ;['from', 'size'].forEach(field => {
-      if (self.dsl[field]) {
-        reqOptions.url += `&${field}=${self.dsl[field]}`
+      if (dsl[field]) {
+        reqOptions.url += `&${field}=${dsl[field]}`
       }
     })
   } else {
     reqOptions.method = 'post'
-    reqOptions.data = self.dsl
+    reqOptions.data = dsl
     if (isSimpleSearch && !axiosConfig) {
       // fallback for old reference with `fetch(axiosConfig)`
       reqOptions.axiosConfig = isSimpleSearch
