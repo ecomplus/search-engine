@@ -1,6 +1,6 @@
 {
   "name": "@ecomplus/search-engine",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "description": "JS lib to handle products search with E-Com Plus stores",
   "module": "src/index.js",
   "browser": "dist/ecom-search.min.js",

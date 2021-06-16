@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.6.1](https://github.com/ecomplus/search-engine/compare/v2.6.0...v2.6.1) (2021-06-16)
+
+
+### Bug Fixes
+
+* **fetch:** must pass instance `storeId` to ecomClient request ([2dd9d67](https://github.com/ecomplus/search-engine/commit/2dd9d67541fc396f065ca450a9ca4c6ce490a4bd))
+
 ## [2.6.0](https://github.com/ecomplus/search-engine/compare/v2.5.1...v2.6.0) (2021-06-01)
 
 
