@@ -4,8 +4,10 @@ import dslMiddlewares from './../lib/dsl-middlewares'
 
 export default (self, isSimpleSearch, axiosConfig) => {
   // mount axios req options for complex or simpĺe search
+  const { storeId } = self
   const reqOptions = {
     url: '/items.json',
+    storeId,
     axiosConfig
   }
 
