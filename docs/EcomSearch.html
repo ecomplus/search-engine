@@ -14,6 +14,7 @@
     <link type="text/css" rel="stylesheet" href="styles/prettify.css">
     <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
     <script src="scripts/nav.js" defer></script>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -27,7 +28,9 @@
 
 <nav >
     
+    
     <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="EcomSearch.html">EcomSearch</a><ul class='methods'><li data-type='method'><a href="EcomSearch.html#fetch">fetch</a></li><li data-type='method'><a href="EcomSearch.html#getBrands">getBrands</a></li><li data-type='method'><a href="EcomSearch.html#getCategories">getCategories</a></li><li data-type='method'><a href="EcomSearch.html#getItems">getItems</a></li><li data-type='method'><a href="EcomSearch.html#getPriceRange">getPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#getSpecs">getSpecs</a></li><li data-type='method'><a href="EcomSearch.html#getTermSuggestions">getTermSuggestions</a></li><li data-type='method'><a href="EcomSearch.html#getTotalCount">getTotalCount</a></li><li data-type='method'><a href="EcomSearch.html#mergeFilter">mergeFilter</a></li><li data-type='method'><a href="EcomSearch.html#removeFilter">removeFilter</a></li><li data-type='method'><a href="EcomSearch.html#reset">reset</a></li><li data-type='method'><a href="EcomSearch.html#setBrandIds">setBrandIds</a></li><li data-type='method'><a href="EcomSearch.html#setBrandNames">setBrandNames</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryIds">setCategoryIds</a></li><li data-type='method'><a href="EcomSearch.html#setCategoryNames">setCategoryNames</a></li><li data-type='method'><a href="EcomSearch.html#setPageNumber">setPageNumber</a></li><li data-type='method'><a href="EcomSearch.html#setPageSize">setPageSize</a></li><li data-type='method'><a href="EcomSearch.html#setPriceRange">setPriceRange</a></li><li data-type='method'><a href="EcomSearch.html#setProductIds">setProductIds</a></li><li data-type='method'><a href="EcomSearch.html#setSearchTerm">setSearchTerm</a></li><li data-type='method'><a href="EcomSearch.html#setSkus">setSkus</a></li><li data-type='method'><a href="EcomSearch.html#setSortOrder">setSortOrder</a></li><li data-type='method'><a href="EcomSearch.html#setSpec">setSpec</a></li></ul></li></ul><h3>Modules</h3><ul><li><a href="module-@ecomplus_search-engine.html">@ecomplus/search-engine</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addGlobalFilter">addGlobalFilter</a></li><li><a href="global.html#setSalesChannel">setSalesChannel</a></li><li><a href="global.html#setWarehouse">setWarehouse</a></li></ul>
+    
 </nav>
 
 <div id="main">
@@ -45,7 +48,9 @@
 <header>
     
         <h2>
-        EcomSearch
+        
+            EcomSearch
+        
         </h2>
         
     
@@ -67,6 +72,10 @@
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Construct a new search engine instance object.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -110,19 +119,13 @@
 
 
 
-<div class="description usertext">
-    Construct a new search engine instance object.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>const search = new EcomSearch()</code></pre>
 
@@ -133,7 +136,7 @@ const search = new EcomSearch(storeId)</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -169,6 +172,7 @@ const search = new EcomSearch(storeId)</code></pre>
             
                 
 <span class="param-type">number</span>
+
 
 
             
@@ -213,6 +217,7 @@ const search = new EcomSearch(storeId)</code></pre>
 <span class="param-type">null</span>
 
 
+
             
             </td>
 
@@ -250,6 +255,7 @@ const search = new EcomSearch(storeId)</code></pre>
             
                 
 <span class="param-type">object</span>
+
 
 
             
@@ -328,6 +334,16 @@ const search = new EcomSearch(storeId)</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Current
+<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html">Query DSL</a>
+for <a href="https://developers.e-com.plus/docs/api/#/search/items/items">Search API</a>
+request body.
+<br>
+You can edit this object to manually set Query DSL properties,
+or you can use instance methods listed below.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -383,11 +399,12 @@ or you can use instance methods listed below.
 
 
 
-    <h5>Type:</h5>
+    <h5 class="h5-types">Type:</h5>
     <ul>
         <li>
             
 <span class="param-type">object</span>
+
 
 
         </li>
@@ -407,6 +424,10 @@ or you can use instance methods listed below.
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Search terms history.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -456,11 +477,12 @@ or you can use instance methods listed below.
 
 
 
-    <h5>Type:</h5>
+    <h5 class="h5-types">Type:</h5>
     <ul>
         <li>
             
 <span class="param-type">array.&lt;string></span>
+
 
 
         </li>
@@ -480,6 +502,10 @@ or you can use instance methods listed below.
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">Storage interface</a>.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -529,11 +555,12 @@ or you can use instance methods listed below.
 
 
 
-    <h5>Type:</h5>
+    <h5 class="h5-types">Type:</h5>
     <ul>
         <li>
             
 <span class="param-type">object</span>
+
 
 
         </li>
@@ -553,6 +580,11 @@ or you can use instance methods listed below.
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Last search result object obtained with the
+<a href="EcomSearch.html#fetch">fetch method</a>.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -603,7 +635,7 @@ or you can use instance methods listed below.
 
 
 
-    <h5>Type:</h5>
+    <h5 class="h5-types">Type:</h5>
     <ul>
         <li>
             
@@ -611,6 +643,7 @@ or you can use instance methods listed below.
 |
 
 <span class="param-type">undefined</span>
+
 
 
         </li>
@@ -630,6 +663,11 @@ or you can use instance methods listed below.
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Item key to handle persistent <a href="EcomSearch.html#history">search history</a> data
+with <a href="EcomSearch.html#localStorage">localStorage</a>.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -680,7 +718,7 @@ with <a href="EcomSearch.html#localStorage">localStorage</a>.
 
 
 
-    <h5>Type:</h5>
+    <h5 class="h5-types">Type:</h5>
     <ul>
         <li>
             
@@ -688,6 +726,7 @@ with <a href="EcomSearch.html#localStorage">localStorage</a>.
 |
 
 <span class="param-type">null</span>
+
 
 
         </li>
@@ -707,6 +746,10 @@ with <a href="EcomSearch.html#localStorage">localStorage</a>.
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Respective Store ID number.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -756,11 +799,12 @@ with <a href="EcomSearch.html#localStorage">localStorage</a>.
 
 
 
-    <h5>Type:</h5>
+    <h5 class="h5-types">Type:</h5>
     <ul>
         <li>
             
 <span class="param-type">number</span>
+
 
 
         </li>
@@ -790,11 +834,17 @@ with <a href="EcomSearch.html#localStorage">localStorage</a>.
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Send POST request to
+<a href="https://developers.e-com.plus/docs/api/#/search/items/items">E-Com Plus Search API</a>
+and returns promise resolved with search result.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="methods_fetch.js.html">methods/fetch.js</a>, <a href="methods_fetch.js.html#line93">line 93</a>
+        <a href="methods_fetch.js.html">methods/fetch.js</a>, <a href="methods_fetch.js.html#line95">line 95</a>
     </li></ul></dd>
     
 
@@ -833,21 +883,13 @@ with <a href="EcomSearch.html#localStorage">localStorage</a>.
 
 
 
-<div class="description usertext">
-    Send POST request to
-<a href="https://developers.e-com.plus/docs/api/#/search/items/items">E-Com Plus Search API</a>
-and returns promise resolved with search result.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>// Run search request
 search.fetch()
@@ -866,7 +908,7 @@ search.fetch()
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -902,6 +944,7 @@ search.fetch()
             
                 
 <span class="param-type">boolean</span>
+
 
 
             
@@ -941,6 +984,7 @@ search.fetch()
             
                 
 <span class="param-type">object</span>
+
 
 
             
@@ -987,7 +1031,7 @@ search.fetch()
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -999,6 +1043,7 @@ search.fetch()
     <dd>
         
 <span class="param-type">Promise.&lt;(<a href="global.html#result">result</a>|error)></span>
+
 
 
     </dd>
@@ -1021,6 +1066,10 @@ search.fetch()
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>List brand options matched from search result object.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -1064,19 +1113,13 @@ search.fetch()
 
 
 
-<div class="description usertext">
-    List brand options matched from search result object.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>// Run search request and list brand aggregations
 await search.fetch()
@@ -1087,7 +1130,7 @@ search.getBrands().forEach(aggBrand => {
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -1123,6 +1166,7 @@ search.getBrands().forEach(aggBrand => {
             
                 
 <span class="param-type"><a href="global.html#result">result</a></span>
+
 
 
             
@@ -1170,7 +1214,7 @@ search.getBrands().forEach(aggBrand => {
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -1182,6 +1226,7 @@ search.getBrands().forEach(aggBrand => {
     <dd>
         
 <span class="param-type">array.&lt;<a href="global.html#aggregation">aggregation</a>></span>
+
 
 
     </dd>
@@ -1204,6 +1249,10 @@ search.getBrands().forEach(aggBrand => {
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>List category options matched from search result object.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -1247,19 +1296,13 @@ search.getBrands().forEach(aggBrand => {
 
 
 
-<div class="description usertext">
-    List category options matched from search result object.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>// Run search request and list category aggregations
 await search.fetch()
@@ -1270,7 +1313,7 @@ search.getCategories().forEach(aggCategory => {
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -1306,6 +1349,7 @@ search.getCategories().forEach(aggCategory => {
             
                 
 <span class="param-type"><a href="global.html#result">result</a></span>
+
 
 
             
@@ -1353,7 +1397,7 @@ search.getCategories().forEach(aggCategory => {
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -1365,6 +1409,7 @@ search.getCategories().forEach(aggCategory => {
     <dd>
         
 <span class="param-type">array.&lt;<a href="global.html#aggregation">aggregation</a>></span>
+
 
 
     </dd>
@@ -1387,6 +1432,10 @@ search.getCategories().forEach(aggCategory => {
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>List items from search result object.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -1430,19 +1479,13 @@ search.getCategories().forEach(aggCategory => {
 
 
 
-<div class="description usertext">
-    List items from search result object.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Run search request and list result items
 await search.fetch()
@@ -1457,7 +1500,7 @@ search.fetch().then(result => search.getItems(result).forEach(({ sku }) => conso
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -1493,6 +1536,7 @@ search.fetch().then(result => search.getItems(result).forEach(({ sku }) => conso
             
                 
 <span class="param-type"><a href="global.html#result">result</a></span>
+
 
 
             
@@ -1540,7 +1584,7 @@ search.fetch().then(result => search.getItems(result).forEach(({ sku }) => conso
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -1552,6 +1596,7 @@ search.fetch().then(result => search.getItems(result).forEach(({ sku }) => conso
     <dd>
         
 <span class="param-type">array.&lt;object></span>
+
 
 
     </dd>
@@ -1574,6 +1619,11 @@ search.fetch().then(result => search.getItems(result).forEach(({ sku }) => conso
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Get minimum, maximum and average item prices
+from search result object.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -1617,20 +1667,13 @@ search.fetch().then(result => search.getItems(result).forEach(({ sku }) => conso
 
 
 
-<div class="description usertext">
-    Get minimum, maximum and average item prices
-from search result object.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>// Run search request and get resultant price range
 search.fetch().then(() => {
@@ -1641,7 +1684,7 @@ search.fetch().then(() => {
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -1677,6 +1720,7 @@ search.fetch().then(() => {
             
                 
 <span class="param-type"><a href="global.html#result">result</a></span>
+
 
 
             
@@ -1724,7 +1768,7 @@ search.fetch().then(() => {
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -1736,6 +1780,7 @@ search.fetch().then(() => {
     <dd>
         
 <span class="param-type">prices</span>
+
 
 
     </dd>
@@ -1758,6 +1803,11 @@ search.fetch().then(() => {
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>List specification grids and options
+matched from search result object.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -1801,20 +1851,13 @@ search.fetch().then(() => {
 
 
 
-<div class="description usertext">
-    List specification grids and options
-matched from search result object.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>// Run search request and list spec options
 await search.fetch()
@@ -1828,7 +1871,7 @@ search.getSpecs().forEach(aggSpec => {
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -1864,6 +1907,7 @@ search.getSpecs().forEach(aggSpec => {
             
                 
 <span class="param-type"><a href="global.html#result">result</a></span>
+
 
 
             
@@ -1911,7 +1955,7 @@ search.getSpecs().forEach(aggSpec => {
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -1923,6 +1967,7 @@ search.getSpecs().forEach(aggSpec => {
     <dd>
         
 <span class="param-type">array.&lt;<a href="global.html#spec">spec</a>></span>
+
 
 
     </dd>
@@ -1945,6 +1990,11 @@ search.getSpecs().forEach(aggSpec => {
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Get list of keyword suggestions based on current
+search term from result object.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -1988,20 +2038,13 @@ search.getSpecs().forEach(aggSpec => {
 
 
 
-<div class="description usertext">
-    Get list of keyword suggestions based on current
-search term from result object.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>// Run search request with wrong term and get suggestions
 search.setSearchTerm('smartprone applo').fetch()
@@ -2024,7 +2067,7 @@ search.setSearchTerm('smartprone applo').fetch()
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -2060,6 +2103,7 @@ search.setSearchTerm('smartprone applo').fetch()
             
                 
 <span class="param-type"><a href="global.html#result">result</a></span>
+
 
 
             
@@ -2107,7 +2151,7 @@ search.setSearchTerm('smartprone applo').fetch()
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -2119,6 +2163,7 @@ search.setSearchTerm('smartprone applo').fetch()
     <dd>
         
 <span class="param-type">array.&lt;<a href="global.html#suggest">suggest</a>></span>
+
 
 
     </dd>
@@ -2141,6 +2186,10 @@ search.setSearchTerm('smartprone applo').fetch()
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Get total number of products found from search result object.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -2184,19 +2233,13 @@ search.setSearchTerm('smartprone applo').fetch()
 
 
 
-<div class="description usertext">
-    Get total number of products found from search result object.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Run search request and count total items matched
 search.fetch().then(() => console.log(search.getTotalCount()))</code></pre>
@@ -2215,7 +2258,7 @@ try {
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -2251,6 +2294,7 @@ try {
             
                 
 <span class="param-type"><a href="global.html#result">result</a></span>
+
 
 
             
@@ -2298,7 +2342,7 @@ try {
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -2310,6 +2354,7 @@ try {
     <dd>
         
 <span class="param-type">number</span>
+
 
 
     </dd>
@@ -2332,6 +2377,11 @@ try {
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Add/update a filter object on current
+Query DSL filters list for next search request.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -2375,20 +2425,13 @@ try {
 
 
 
-<div class="description usertext">
-    Add/update a filter object on current
-Query DSL filters list for next search request.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Add custom filter by product quantity
 search.mergeFilter({
@@ -2404,7 +2447,7 @@ search.mergeFilter(filter).fetch()</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -2442,6 +2485,7 @@ search.mergeFilter(filter).fetch()</code></pre>
 <span class="param-type">object</span>
 
 
+
             
             </td>
 
@@ -2476,6 +2520,7 @@ search.mergeFilter(filter).fetch()</code></pre>
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -2524,7 +2569,7 @@ search.mergeFilter(filter).fetch()</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -2536,6 +2581,7 @@ search.mergeFilter(filter).fetch()</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -2558,6 +2604,11 @@ search.mergeFilter(filter).fetch()</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Remove a filter object on current
+Query DSL filters list for next search request.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -2601,20 +2652,13 @@ search.mergeFilter(filter).fetch()</code></pre>
 
 
 
-<div class="description usertext">
-    Remove a filter object on current
-Query DSL filters list for next search request.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Remove filter by brand IDs and all specification filters
 search.removeFilter('brands._id').removeFilter('specs')</code></pre>
@@ -2625,7 +2669,7 @@ search.removeFilter('categories.name').fetch()</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -2663,6 +2707,7 @@ search.removeFilter('categories.name').fetch()</code></pre>
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -2698,6 +2743,7 @@ with dot notation for nested properties</td>
             
                 
 <span class="param-type">string</span>
+
 
 
             
@@ -2746,7 +2792,7 @@ with dot notation for nested properties</td>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -2758,6 +2804,7 @@ with dot notation for nested properties</td>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -2780,6 +2827,13 @@ with dot notation for nested properties</td>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Reset default
+<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html">Query DSL</a>
+for <a href="https://developers.e-com.plus/docs/api/#/search/items/items">Search API</a>
+request body and unset instance result.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -2823,22 +2877,13 @@ with dot notation for nested properties</td>
 
 
 
-<div class="description usertext">
-    Reset default
-<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-body.html">Query DSL</a>
-for <a href="https://developers.e-com.plus/docs/api/#/search/items/items">Search API</a>
-request body and unset instance result.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Example</h5>
+    <h5 class="h5-examples">Example</h5>
     
     <pre class="prettyprint"><code>// Reset instance `dsl` and `result`
 search.reset()</code></pre>
@@ -2860,7 +2905,7 @@ search.reset()</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -2872,6 +2917,7 @@ search.reset()</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -2894,6 +2940,11 @@ search.reset()</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Defines list of brand IDs to match on next search request,
+filtering product results by brand.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -2937,20 +2988,13 @@ search.reset()</code></pre>
 
 
 
-<div class="description usertext">
-    Defines list of brand IDs to match on next search request,
-filtering product results by brand.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Set filter by brand ID and run search request
 search.setBrandIds([ '5c703b35c626be23430d5030' ]).fetch()</code></pre>
@@ -2961,7 +3005,7 @@ search.setBrandIds(null)</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -2998,6 +3042,7 @@ search.setBrandIds(null)</code></pre>
 <span class="param-type">null</span>
 
 
+
             
             </td>
 
@@ -3027,7 +3072,7 @@ search.setBrandIds(null)</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -3039,6 +3084,7 @@ search.setBrandIds(null)</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -3061,6 +3107,11 @@ search.setBrandIds(null)</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Defines list of brand names to match on next search request,
+filtering product results by brand.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -3104,20 +3155,13 @@ search.setBrandIds(null)</code></pre>
 
 
 
-<div class="description usertext">
-    Defines list of brand names to match on next search request,
-filtering product results by brand.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Set filter by brands and run search request
 search.setBrandNames([ 'Corsair', 'Apple' ]).fetch()</code></pre>
@@ -3128,7 +3172,7 @@ search.setBrandNames(null)</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -3165,6 +3209,7 @@ search.setBrandNames(null)</code></pre>
 <span class="param-type">null</span>
 
 
+
             
             </td>
 
@@ -3194,7 +3239,7 @@ search.setBrandNames(null)</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -3206,6 +3251,7 @@ search.setBrandNames(null)</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -3228,6 +3274,11 @@ search.setBrandNames(null)</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Defines list of category IDs to match on next search request,
+filtering product results by category.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -3271,20 +3322,13 @@ search.setBrandNames(null)</code></pre>
 
 
 
-<div class="description usertext">
-    Defines list of category IDs to match on next search request,
-filtering product results by category.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Set filter by category IDs for next search
 search.setCategoryIds([ '5c7009fdc626be23430d4f82', '5c700a53c626be23430d4f88' ])</code></pre>
@@ -3295,7 +3339,7 @@ search.setCategoryIds(null).fetch()</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -3332,6 +3376,7 @@ search.setCategoryIds(null).fetch()</code></pre>
 <span class="param-type">null</span>
 
 
+
             
             </td>
 
@@ -3361,7 +3406,7 @@ search.setCategoryIds(null).fetch()</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -3373,6 +3418,7 @@ search.setCategoryIds(null).fetch()</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -3395,6 +3441,11 @@ search.setCategoryIds(null).fetch()</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Defines list of category names to match on next search request,
+filtering product results by category.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -3438,20 +3489,13 @@ search.setCategoryIds(null).fetch()</code></pre>
 
 
 
-<div class="description usertext">
-    Defines list of category names to match on next search request,
-filtering product results by category.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Set filter by categories and run search request
 search.setCategoryNames([ 'Headset', 'Monitores Gamer' ]).fetch()</code></pre>
@@ -3462,7 +3506,7 @@ search.setCategoryNames(null)</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -3499,6 +3543,7 @@ search.setCategoryNames(null)</code></pre>
 <span class="param-type">null</span>
 
 
+
             
             </td>
 
@@ -3528,7 +3573,7 @@ search.setCategoryNames(null)</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -3540,6 +3585,7 @@ search.setCategoryNames(null)</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -3562,6 +3608,11 @@ search.setCategoryNames(null)</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Defines next page number for
+search request (paginate results) starting from 1.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -3605,20 +3656,13 @@ search.setCategoryNames(null)</code></pre>
 
 
 
-<div class="description usertext">
-    Defines next page number for
-search request (paginate results) starting from 1.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Configure to get second page of results and run search request
 search.setPageNumber(2).fetch()</code></pre>
@@ -3630,7 +3674,7 @@ search.setPageNumber()</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -3666,6 +3710,7 @@ search.setPageNumber()</code></pre>
             
                 
 <span class="param-type">number</span>
+
 
 
             
@@ -3713,7 +3758,7 @@ search.setPageNumber()</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -3725,6 +3770,7 @@ search.setPageNumber()</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -3747,6 +3793,10 @@ search.setPageNumber()</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Defines maximum number of result items for next search request.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -3790,19 +3840,13 @@ search.setPageNumber()</code></pre>
 
 
 
-<div class="description usertext">
-    Defines maximum number of result items for next search request.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Set page size 20 and run search request
 search.setPageSize(20).fetch()</code></pre>
@@ -3814,7 +3858,7 @@ search.setPageSize()</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -3850,6 +3894,7 @@ search.setPageSize()</code></pre>
             
                 
 <span class="param-type">number</span>
+
 
 
             
@@ -3897,7 +3942,7 @@ search.setPageSize()</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -3909,6 +3954,7 @@ search.setPageSize()</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -3931,6 +3977,11 @@ search.setPageSize()</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Defines range filter to match with product price
+for next search request.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -3974,20 +4025,13 @@ search.setPageSize()</code></pre>
 
 
 
-<div class="description usertext">
-    Defines range filter to match with product price
-for next search request.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Set filter by price range and run search request
 search.setPriceRange(10, 22.5).fetch()</code></pre>
@@ -3998,7 +4042,7 @@ search.setPriceRange(null, null)</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -4035,6 +4079,7 @@ search.setPriceRange(null, null)</code></pre>
 <span class="param-type">null</span>
 
 
+
             
             </td>
 
@@ -4059,6 +4104,7 @@ search.setPriceRange(null, null)</code></pre>
 |
 
 <span class="param-type">null</span>
+
 
 
             
@@ -4090,7 +4136,7 @@ search.setPriceRange(null, null)</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -4102,6 +4148,7 @@ search.setPriceRange(null, null)</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -4124,6 +4171,10 @@ search.setPriceRange(null, null)</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Defines list of product IDs to match on next search request.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -4167,19 +4218,13 @@ search.setPriceRange(null, null)</code></pre>
 
 
 
-<div class="description usertext">
-    Defines list of product IDs to match on next search request.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Set filter by ID and run search request
 search.setProductIds([ '5c703c40c626be23430d5033' ]).fetch()</code></pre>
@@ -4190,7 +4235,7 @@ search.setProductIds(null)</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -4227,6 +4272,7 @@ search.setProductIds(null)</code></pre>
 <span class="param-type">null</span>
 
 
+
             
             </td>
 
@@ -4256,7 +4302,7 @@ search.setProductIds(null)</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -4268,6 +4314,7 @@ search.setProductIds(null)</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -4290,6 +4337,11 @@ search.setProductIds(null)</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Defines term to match with product name
+and/or keywords on next search request.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -4333,20 +4385,13 @@ search.setProductIds(null)</code></pre>
 
 
 
-<div class="description usertext">
-    Defines term to match with product name
-and/or keywords on next search request.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Set new search term
 search.setSearchTerm('smartphone')</code></pre>
@@ -4357,7 +4402,7 @@ search.setSearchTerm('notebook').fetch()</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -4391,6 +4436,7 @@ search.setSearchTerm('notebook').fetch()</code></pre>
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -4420,7 +4466,7 @@ search.setSearchTerm('notebook').fetch()</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -4432,6 +4478,7 @@ search.setSearchTerm('notebook').fetch()</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -4454,6 +4501,10 @@ search.setSearchTerm('notebook').fetch()</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Defines list of product SKUs to match on next search request.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -4497,19 +4548,13 @@ search.setSearchTerm('notebook').fetch()</code></pre>
 
 
 
-<div class="description usertext">
-    Defines list of product SKUs to match on next search request.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Set filter by SKUs for next search
 search.setSkus(['nb-apl-1203', 'hd-csr-303'])</code></pre>
@@ -4520,7 +4565,7 @@ search.setSkus(null).fetch()</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -4557,6 +4602,7 @@ search.setSkus(null).fetch()</code></pre>
 <span class="param-type">null</span>
 
 
+
             
             </td>
 
@@ -4586,7 +4632,7 @@ search.setSkus(null).fetch()</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -4598,6 +4644,7 @@ search.setSkus(null).fetch()</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -4620,6 +4667,11 @@ search.setSkus(null).fetch()</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Defines most common sorting options and set
+on instance query for next search request.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -4663,20 +4715,13 @@ search.setSkus(null).fetch()</code></pre>
 
 
 
-<div class="description usertext">
-    Defines most common sorting options and set
-on instance query for next search request.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Set sort by top selling products and run search request
 search.setSortOrder('sales').fetch()</code></pre>
@@ -4688,7 +4733,7 @@ search.setSortOrder()</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -4747,6 +4792,7 @@ search.setSortOrder()</code></pre>
 <span class="param-type">'views'</span>
 
 
+
             
             </td>
 
@@ -4792,7 +4838,7 @@ search.setSortOrder()</code></pre>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -4804,6 +4850,7 @@ search.setSortOrder()</code></pre>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -4826,6 +4873,11 @@ search.setSortOrder()</code></pre>
 
 
 <dl class="details">
+    
+    <dt class="tag-description">Description:</dt>
+    <dd class="tag-description"><ul class="dummy"><li>Add, update or remove search filter
+by product specification based on grid ID and list of text options to match.</li></ul></dd>
+    
 
     
     <dt class="tag-source">Source:</dt>
@@ -4869,20 +4921,13 @@ search.setSortOrder()</code></pre>
 
 
 
-<div class="description usertext">
-    Add, update or remove search filter
-by product specification based on grid ID and list of text options to match.
-</div>
 
 
 
 
 
 
-
-
-
-    <h5>Examples</h5>
+    <h5 class="h5-examples">Examples</h5>
     
     <pre class="prettyprint"><code>// Set filter by size specification and run search request
 search.setSpec('size', ['M', 'G']).fetch()
@@ -4895,7 +4940,7 @@ search.setSpec('size', null)</code></pre>
 
 
 
-    <h5>Parameters:</h5>
+    <h5 class="h5-parameters">Parameters:</h5>
     
 
 <table class="params">
@@ -4929,6 +4974,7 @@ search.setSpec('size', null)</code></pre>
 <span class="param-type">string</span>
 
 
+
             
             </td>
 
@@ -4953,6 +4999,7 @@ search.setSpec('size', null)</code></pre>
 |
 
 <span class="param-type">null</span>
+
 
 
             
@@ -4985,7 +5032,7 @@ or null to clear current grid filter</td>
 
 
 
-<h5>Returns:</h5>
+<h5 class="h5-returns">Returns:</h5>
 
         
 
@@ -4997,6 +5044,7 @@ or null to clear current grid filter</td>
     <dd>
         
 <span class="param-type">self</span>
+
 
 
     </dd>
@@ -5026,7 +5074,7 @@ or null to clear current grid filter</td>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Mon May 31 2021 21:14:40 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Wed Feb 22 2023 20:40:42 GMT-0300 (Brasilia Standard Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
 </footer>
 
 <script>prettyPrint();</script>
