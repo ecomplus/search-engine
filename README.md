@@ -36,6 +36,20 @@ search.setSearchTerm('smartphone').fetch()
   })
 ```
 
+#### Customize search query before fetch
+
+```js
+import EcomSearch from '@ecomplus/search-engine'
+
+EcomSearch.dslMiddlewares.push((dsl) => {
+  dsl.query.bool.filter.push({
+    terms: {
+      channel_id: [123]
+    }
+  })
+})
+```
+
 ### Installation
 
 It _may_ require and doesn't include `core-js` (optional) and [`@ecomplus/utils`](https://developers.e-com.plus/utils/) (peer dependency).
