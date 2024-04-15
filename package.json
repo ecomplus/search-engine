@@ -34,7 +34,7 @@
     "@ecomplus/utils": "^1.4.1"
   },
   "optionalDependencies": {
-    "core-js": "3.x"
+    "core-js": "3.36.1"
   },
   "dependencies": {
     "@ecomplus/client": "^2.3.1",
