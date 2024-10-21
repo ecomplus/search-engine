@@ -51,7 +51,7 @@
     "core-js": "^3.38.1",
     "docdash": "^2.0.2",
     "husky": "^8.0.3",
-    "jsdoc": "^4.0.3",
+    "jsdoc": "^4.0.4",
     "standard": "^17.1.2",
     "commit-and-tag-version": "^9.6.0",
     "webpack": "^4.47.0",
