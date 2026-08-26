@@ -2,6 +2,61 @@ import { search } from '@ecomplus/client'
 import * as cloneDeep from 'lodash.clonedeep'
 import dslMiddlewares from './../lib/dsl-middlewares'
 
+const getSourceValue = (source, field) => {
+  // resolve (dotted) field path on item source object
+  let value = source
+  const fieldKeys = field.split('.')
+  for (let i = 0; i < fieldKeys.length; i++) {
+    if (Array.isArray(value)) {
+      value = value.map(nested => (nested ? nested[fieldKeys[i]] : undefined))
+    } else if (value) {
+      value = value[fieldKeys[i]]
+    } else {
+      return undefined
+    }
+  }
+  return value
+}
+
+const checkFilterMatch = (rule, source) => {
+  // re-apply DSL filter rule on item source client side
+  const type = Object.keys(rule)[0]
+  const condition = rule[type]
+  if (typeof condition !== 'object' || condition === null) {
+    return true
+  }
+  const field = Object.keys(condition)[0]
+  if (!field || field === '_id') {
+    return true
+  }
+  const value = getSourceValue(source, field)
+  if (value === undefined) {
+    // can't verify rule client side, keep item
+    return true
+  }
+  switch (type) {
+    case 'term':
+    case 'terms': {
+      const matchValues = Array.isArray(condition[field]) ? condition[field] : [condition[field]]
+      return Array.isArray(value)
+        ? value.some(nested => matchValues.indexOf(nested) > -1)
+        : matchValues.indexOf(value) > -1
+    }
+    case 'range': {
+      if (typeof value !== 'number') {
+        return true
+      }
+      const { gt, gte, lt, lte } = condition[field]
+      return !(gt !== undefined && value <= gt) &&
+        !(gte !== undefined && value < gte) &&
+        !(lt !== undefined && value >= lt) &&
+        !(lte !== undefined && value > lte)
+    }
+    default:
+      return true
+  }
+}
+
 export default (self, isSimpleSearch, axiosConfig) => {
   // mount axios req options for complex or simpĺe search
   const { storeId } = self
@@ -22,21 +77,48 @@ export default (self, isSimpleSearch, axiosConfig) => {
     }
   })
 
-  if (isSimpleSearch === true) {
+  // check for filter by product IDs (`setProductIds`)
+  // Search API v2 (`/v2/search/_els`) returns no hit filtering `_id` on
+  // request body and mishandles composed query string conditions,
+  // so `_id` must be searched alone on `q` param with
+  // other filters re-applied client side
+  // https://github.com/ecomplus/storefront/issues/1306
+  let productIds
+  const queryFilters = dsl.query && dsl.query.bool && dsl.query.bool.filter
+  if (Array.isArray(queryFilters) && (isSimpleSearch === true || !dsl.aggs)) {
+    for (let i = 0; i < queryFilters.length; i++) {
+      const { term, terms } = queryFilters[i]
+      const condition = term || terms
+      if (condition && Object.keys(condition)[0] === '_id') {
+        const value = condition._id
+        productIds = Array.isArray(value) ? value : [value]
+        break
+      }
+    }
+  }
+  const idsPagination = productIds && {
+    from: dsl.from || 0,
+    size: dsl.size
+  }
+
+  if (productIds) {
+    const queryString = `_id:("${productIds.join('" "')}")`
+    reqOptions.url += `?q=${encodeURIComponent(queryString)}&size=${productIds.length}`
+  } else if (isSimpleSearch === true) {
     // https://www.elastic.co/guide/en/elasticsearch/reference/6.3/search-uri-request.html
     const { query } = dsl
     reqOptions.url += '?q='
     if (query && query.bool && Array.isArray(query.bool.filter)) {
       // parse query filters to string
       let queryString = ''
-      query.bool.filter.forEach(({ term, terms }, i) => {
-        if (i > 0) {
-          queryString += ' AND '
-        }
+      query.bool.filter.forEach(({ term, terms }) => {
         const condition = term || terms
         if (condition) {
           const field = Object.keys(condition)[0]
           const value = condition[field]
+          if (queryString.length) {
+            queryString += ' AND '
+          }
           queryString += `${field}:${(Array.isArray(value) ? `("${value.join('" "')}")` : value)}`
         }
       })
@@ -59,6 +141,15 @@ export default (self, isSimpleSearch, axiosConfig) => {
 
   // request Search API and return promise
   return search(reqOptions).then(({ data }) => {
+    if (productIds && data.hits && Array.isArray(data.hits.hits)) {
+      // re-apply other query filters and sort by requested IDs client side
+      const hits = data.hits.hits
+        .filter(({ _source }) => queryFilters.every(rule => checkFilterMatch(rule, _source)))
+        .sort((a, b) => productIds.indexOf(a._id) - productIds.indexOf(b._id))
+      const { from, size } = idsPagination
+      data.hits.total = hits.length
+      data.hits.hits = size ? hits.slice(from, from + size) : hits.slice(from)
+    }
     // save last result on instance
     self.result = data
     const { dsl, history, localStorage, storageKey } = self
